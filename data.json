@@ -281,7 +281,8 @@
   },
   {
     "id": "remote",
-    "description": "지게차 운전자가 내리지 않고 리모콘으로 조작할 수 있어 작업 효율을 극대화한 모델입니다.",
+    "subtitle": "Remote Control",
+    "caution": "클램프 기능 , 랩 컷팅 및 부착이 공압시스템으로 에어컴프레셔가 구비되어있어야합니다. (별도 구매)",
     "gallery": [
       "https://postfiles.pstatic.net/MjAyNjA0MDlfMTU3/MDAxNzc1NzA3NjUzMDEx.R8uADSSkmH2HbELOfzL63zn9iP8ebhsS5nFQDMKi_s4g.Xe4ivI_JaTd6BGUed-LGIOa0s_KT61Y3VVcGUPnQK2Ag.JPEG/20260329_141745.jpg?type=w773",
       "https://postfiles.pstatic.net/MjAyNjA0MDlfMTMz/MDAxNzc1NzA3NjYyMjg4.ugCsaBokfdHGhq4TZTRiK0pdiDOWpllm7jI3IkvUoCAg.lwWmmM93jN5qUjR_qlSWNRNLZE2awGe6wMGSk1qsP6Eg.JPEG/20260329_141825.jpg?type=w773",
@@ -294,61 +295,6 @@
       "https://postfiles.pstatic.net/MjAyNjA0MDlfMzQg/MDAxNzc1NzA4MzE0MjE4.uNmckJb4PMZWIvH7h-_a9RC-l3uaxWNk_nkWj9uvPvUg.w8zJ4CJGwFXq7VvR5eiIv-k3jsIDEoMeSXwzsFIIDzwg.JPEG/KakaoTalk_20250623_093308691_01.jpg?type=w773",
       "https://postfiles.pstatic.net/MjAyNjA0MDlfMTc3/MDAxNzc1NzA3ODA3OTY3.UdnrrOTcGZ-As0xRuf656L5CC90L7g8k9lB8q3176fwg.8pfGJ5hrPipY3M8v62PCEP7k9oUdFSdEiYNCALOBQjEg.JPEG/20260329_151201.jpg?type=w773",
       "https://postfiles.pstatic.net/MjAyNjA0MDlfMjcy/MDAxNzc1NzA3Nzg1ODM1.yh01C777tra20hnKdFwTU76TlFnn_-tF88dMlz0g_Igg.5DWpxI4ODziOqsQ6IfKJ04nTUPoh-EzuZYwXzWMCJzgg.JPEG/KakaoTalk_20260329_173507463.jpg?type=w773"
-    ],
-    "customizedInfo": {
-      "description": "표준 사양 외에도 고객사의 작업 환경에 맞춘 특수 제작이 가능합니다.",
-      "items": []
-    },
-    "subtitle": "Remote Control",
-    "specs": [
-      {
-        "label": "전원",
-        "value": "220V 단상"
-      },
-      {
-        "label": "조작 방식",
-        "value": "무선 리모콘"
-      },
-      {
-        "label": "수신 거리",
-        "value": "최대 50m"
-      },
-      {
-        "label": "시스템 제어",
-        "value": "PLC 방식"
-      },
-      {
-        "label": "랩 부착",
-        "value": "브러쉬 (웰딩 옵션)"
-      },
-      {
-        "label": "기능",
-        "value": "자동 필름 컷팅 및 랩 클램프 기능"
-      },
-      {
-        "label": "필름 연신율",
-        "value": "최대 300%"
-      },
-      {
-        "label": "턴테이블 직경",
-        "value": "1,500Φ"
-      },
-      {
-        "label": "최대 적재 중량",
-        "value": "2,000kg"
-      },
-      {
-        "label": "최대 랩핑 높이",
-        "value": "2,100mm"
-      },
-      {
-        "label": "랩핑기 규격",
-        "value": "1,500W x 2,600L x 2,485H (mm)"
-      },
-      {
-        "label": "기계 중량",
-        "value": "약 600kg"
-      }
     ],
     "performance": [
       "지게차로 쉽게 이동이 가능",
@@ -369,74 +315,150 @@
       "%EC%84%A4%EB%AA%85%EC%83%81%EC%84%B8%ED%91%9C%EC%8B%9C",
       "KakaoTalk_20260329_173507463.jpg?type=w773"
     ],
-    "videoUrls": [],
+    "customizedInfo": {
+      "description": "표준 사양 외에도 고객사의 작업 환경에 맞춘 특수 제작이 가능합니다.",
+      "items": []
+    },
     "videoUrl": "",
+    "description": "지게차 운전자가 내리지 않고 리모콘으로 조작할 수 있어 작업 효율을 극대화한 모델입니다.",
+    "order": 3,
+    "specs": [
+      {
+        "value": "220V 단상",
+        "label": "전원"
+      },
+      {
+        "value": "무선 리모콘",
+        "label": "조작 방식"
+      },
+      {
+        "value": "최대 50m",
+        "label": "수신 거리"
+      },
+      {
+        "value": "PLC 방식",
+        "label": "시스템 제어"
+      },
+      {
+        "value": "브러쉬 (웰딩 옵션)",
+        "label": "랩 부착"
+      },
+      {
+        "value": "자동 필름 컷팅 및 랩 클램프 기능",
+        "label": "기능"
+      },
+      {
+        "value": "최대 300%",
+        "label": "필름 연신율"
+      },
+      {
+        "value": "1,500Φ",
+        "label": "턴테이블 직경"
+      },
+      {
+        "value": "2,000kg",
+        "label": "최대 적재 중량"
+      },
+      {
+        "value": "2,100mm",
+        "label": "최대 랩핑 높이"
+      },
+      {
+        "value": "1,500W x 2,600L x 2,485H (mm)",
+        "label": "랩핑기 규격"
+      },
+      {
+        "value": "약 600kg",
+        "label": "기계 중량"
+      }
+    ],
+    "title": "리모콘 랩핑기",
+    "image": "https://postfiles.pstatic.net/MjAyNjA0MDlfMjg2/MDAxNzc1NzA3NjEyMjc2.D1i1s7IwkcgR937TOLkOgoOQf0v_HN-GW0DniabQy0sg.ZEs9Wu7pwNON729njmvz2sSA7RtTSmNGuRt-HWHDTT8g.JPEG/%EB%A6%AC%EB%AA%A8%EC%BB%A8%EB%9E%A9%ED%95%91%EA%B8%B0_%EB%88%84%EB%81%BC.jpg?type=w773",
+    "videoUrls": [],
     "advantages": [
       {
-        "title": "효율성",
-        "description": "반복적인 승하차 과정을 생략하여 작업 속도를 획기적으로 높입니다."
+        "description": "반복적인 승하차 과정을 생략하여 작업 속도를 획기적으로 높입니다.",
+        "title": "효율성"
       },
       {
-        "title": "안전성",
-        "description": "원거리 조작으로 작업자와 기계 간의 안전 거리를 확보합니다."
+        "description": "원거리 조작으로 작업자와 기계 간의 안전 거리를 확보합니다.",
+        "title": "안전성"
       },
       {
-        "title": "편의성",
-        "description": "복잡한 설정 없이 리모콘 하나로 간편하게 시작과 정지가 가능합니다."
+        "description": "복잡한 설정 없이 리모콘 하나로 간편하게 시작과 정지가 가능합니다.",
+        "title": "편의성"
       }
     ],
     "detailedDescription": "리모콘 랩핑기는 무선 제어 기술을 도입하여 지게차 운전자가 차량에서 내리지 않고도 모든 과정을 제어할 수 있는 스마트 물류 장비입니다.\n\n지게차에서 내리고 타는 반복적인 동작을 없애주어 작업자의 피로도를 획기적으로 줄여주며, 포장 작업 시간을 단축시켜 전체적인 물류 흐름을 원활하게 합니다.\n\n**주요 특징**\n\n• **원거리 무선 제어:** 최대 50m 거리에서도 안정적인 조작이 가능하여 넓은 작업 현장에서도 효율적입니다.\n• **작업 효율 극대화:** 지게차 승하차 시간을 절약하여 기존 대비 약 30% 이상의 작업 속도 향상을 기대할 수 있습니다.\n• **안전성 확보:** 작업자가 기계와 일정 거리를 유지한 상태에서 조작하므로 안전 사고 예방에 효과적입니다.\n• **간편한 조작:** 직관적인 리모콘 버튼 구성으로 누구나 쉽게 숙달할 수 있으며, 비상 정지 기능이 포함되어 있어 위급 상황 시 즉각적인 대처가 가능합니다.",
-    "title": "리모콘 랩핑기",
-    "order": 3,
     "recommendedIndustries": [
       "지게차 작업 비중이 높은 대형 물류 센터 및 창고",
       "1인 작업자가 지게차와 랩핑을 동시에 수행하는 현장",
       "작업 인력이 부족하여 1인 대응을 수행해야 하는 현장",
       "속한 상하차 및 출고가 필요한 유통 기지",
       "작업 효율성과 안전을 중시하는 스마트 공장"
-    ],
-    "image": "https://postfiles.pstatic.net/MjAyNjA0MDlfMjg2/MDAxNzc1NzA3NjEyMjc2.D1i1s7IwkcgR937TOLkOgoOQf0v_HN-GW0DniabQy0sg.ZEs9Wu7pwNON729njmvz2sSA7RtTSmNGuRt-HWHDTT8g.JPEG/%EB%A6%AC%EB%AA%A8%EC%BB%A8%EB%9E%A9%ED%95%91%EA%B8%B0_%EB%88%84%EB%81%BC.jpg?type=w773",
-    "caution": "클램프 기능 , 랩 컷팅 및 부착이 공압시스템으로 에어컴프레셔가 구비되어있어야합니다. (별도 구매)"
+    ]
   },
   {
     "id": "turntable",
+    "detailedDescription": "원판 랩핑기는 기둥 없이 턴테이블만으로 구성된 랩핑 보조 장비입니다.좁고 낮은 공간에서도 효율적으로 사용할 수 있으며, 지게차로 이동이 매우 자유롭습니다.\n\n인버터 제어를 통한 부드러운 회전과 풋 스위치를 이용한 간편한 조작으로, 작업자가 직접 들 필요 없이 수동 랩핑의 피로도를 획기적으로 줄여주는 경제적인 솔루션입니다.",
+    "recommendedIndustries": [],
+    "order": 4,
     "description": "기본적인 턴테이블 회전 기능을 제공하는 가장 심플한 형태의 랩핑 보조 장비입니다.",
-    "specs": [
+    "videoUrls": [
+      "https://www.youtube.com/embed/g1UTNacg33M"
+    ],
+    "advantages": [
       {
-        "label": "전원",
-        "value": "220V 단상"
+        "description": "최소한의 투자로 수동 랩핑의 노동 강도를 크게 줄여줍니다.",
+        "title": "가성비"
       },
       {
-        "label": "턴테이블 직경",
-        "value": "1,500Φ"
+        "description": "기둥이 없어 좁고 낮은 공간에서도 자유롭게 설치 및 사용이 가능합니다.",
+        "title": "공간 효율"
       },
       {
-        "label": "회전 속도",
-        "value": "0~12 RPM"
-      },
-      {
-        "label": "최대 적재 중량",
-        "value": "2,000kg"
-      },
-      {
-        "label": "작동 방식",
-        "value": "풋 스위치"
+        "description": "단순한 구조로 고장이 적고 장기간 안정적인 사용이 보장됩니다.",
+        "title": "내구성"
       }
     ],
-    "subtitle": "Turntable Only",
+    "title": "원판 랩핑기",
+    "image": "https://postfiles.pstatic.net/MjAyNjAzMjZfMTMy/MDAxNzc0NDk5OTUyMDcw.ZAs77izLrrTRrMljPAKXM-EbK6OGzcdVSLtqRYqAD3Qg.60Xuf8S7uLb_b0723fTZljLAHpE4x-BDV9GXqD2gWjIg.JPEG/%EC%A0%9C%EB%AA%A9%EC%9D%84_%EC%9E%85%EB%A0%A5%ED%95%98%EC%84%B8%EC%9A%94_(12).jpg?type=w773",
+    "specs": [
+      {
+        "value": "220V 단상",
+        "label": "전원"
+      },
+      {
+        "value": "1,500Φ",
+        "label": "턴테이블 직경"
+      },
+      {
+        "value": "0~12 RPM",
+        "label": "회전 속도"
+      },
+      {
+        "value": "2,000kg",
+        "label": "최대 적재 중량"
+      },
+      {
+        "value": "풋 스위치",
+        "label": "작동 방식"
+      }
+    ],
     "customizedInfo": {
       "items": [
         "턴테이블 직경: 최대 3,000 파이(Φ)까지 제작 가능"
       ],
       "description": "표준 사양 외에도 고객사의 작업 환경에 맞춘 특수 제작이 가능합니다."
     },
-    "gallery": [
-      "https://postfiles.pstatic.net/MjAyNjAzMjZfMjc0/MDAxNzc0NDk5MjE5OTIz.DAQ0EcfRFo_78NFv3ZlzYmOAklNaWA7OB7QtymvriLYg.YjwIbeeUnSSch6oIz-XBgK9ccDNevQ2MBHzx7XwQ220g.JPEG/KakaoTalk_20260110_152635219_02.jpg?type=w773",
-      "https://postfiles.pstatic.net/MjAyNjAzMjZfMjcg/MDAxNzc0NDk5MjE5OTMz.YTl3lBvhg9TrOeBs4fpQgA59K8b2a3-gBvR4nmdIi44g.1g9-L7JT0UVWTc4x8DlKwc878P1ZnPqoH5wls2kDWIwg.JPEG/KakaoTalk_20260110_152635219_03.jpg?type=w773",
-      "https://postfiles.pstatic.net/MjAyNjA0MDhfNjAg/MDAxNzc1NjE5NzAyOTIw.nu3X_-1c2M4DcaFXmHp_JonAewDIzSurkjahcjbjvjAg.07eeolz5uhKqacUTgoMli_AVc5DFFuQZW6nnDgh0m00g.JPEG/%EC%A0%9C%EB%AA%A9%EC%9D%84_%EC%9E%85%EB%A0%A5%ED%95%98%EC%84%B8%EC%9A%94_(16).jpg?type=w773",
-      "https://postfiles.pstatic.net/MjAyNjAzMjZfOTUg/MDAxNzc0NDk5MjE5OTIy.WJnXQEYLl9SWjWd3uz9BbJPfsqN-cnTNIX51n3vsK28g.p3dWcnkbZvJZr41WdoJTkanANdZcPbWFyj7jIUnuGgMg.JPEG/KakaoTalk_20260110_152635219_04.jpg?type=w773",
-      "https://postfiles.pstatic.net/MjAyNjAzMjZfMTIx/MDAxNzc0NDk5MTc2NzY0.OLfra6MtWLPxoEgQb5ei0yYOfIpzJU8a77L2f2E-xcwg.ZIvY5ikwCTW1RI--Fp3_w_GUXPFUtkPMlLR2byKNcm0g.JPEG/KakaoTalk_20260109_124646049_03.jpg?type=w773"
+    "fitImages": [
+      "%EA%B8%B0%ED%8C%90",
+      "(9)",
+      "%EC%A0%9C%EB%AA%A9%EC%9D%84_%EC%9E%85%EB%A0%A5%ED%95%98%EC%84%B8%EC%9A%94",
+      "%EC%84%A4%EB%AA%85%EC%83%81%EC%84%B8%ED%91%9C%EC%8B%9C"
     ],
+    "videoUrl": "https://www.youtube.com/embed/g1UTNacg33M",
+    "subtitle": "Turntable Only",
     "performance": [
       "지게차로 쉽게 이동이 가능 \n(지게차만 있으면 상시 이동가능)",
       "인버터 제어로 부드러운 가감속\n(슬로우 스타트/스톱)",
@@ -447,35 +469,13 @@
       "간단한 구조로 고장이 적고 유지보수가 매우 용이",
       "220V 단상 전원으로 어디서나 간편하게 연결 가능"
     ],
-    "fitImages": [
-      "%EA%B8%B0%ED%8C%90",
-      "(9)",
-      "%EC%A0%9C%EB%AA%A9%EC%9D%84_%EC%9E%85%EB%A0%A5%ED%95%98%EC%84%B8%EC%9A%94",
-      "%EC%84%A4%EB%AA%85%EC%83%81%EC%84%B8%ED%91%9C%EC%8B%9C"
-    ],
-    "detailedDescription": "원판 랩핑기는 기둥 없이 턴테이블만으로 구성된 랩핑 보조 장비입니다.",
-    "videoUrl": "https://www.youtube.com/embed/g1UTNacg33M",
-    "advantages": [
-      {
-        "title": "가성비",
-        "description": "최소한의 투자로 수동 랩핑의 노동 강도를 크게 줄여줍니다."
-      },
-      {
-        "title": "공간 효율",
-        "description": "기둥이 없어 좁고 낮은 공간에서도 자유롭게 설치 및 사용이 가능합니다."
-      },
-      {
-        "title": "내구성",
-        "description": "단순한 구조로 고장이 적고 장기간 안정적인 사용이 보장됩니다."
-      }
-    ],
-    "videoUrls": [
-      "https://www.youtube.com/embed/g1UTNacg33M"
-    ],
-    "title": "원판 랩핑기",
-    "recommendedIndustries": [],
-    "order": 4,
-    "image": "https://postfiles.pstatic.net/MjAyNjAzMjZfMTMy/MDAxNzc0NDk5OTUyMDcw.ZAs77izLrrTRrMljPAKXM-EbK6OGzcdVSLtqRYqAD3Qg.60Xuf8S7uLb_b0723fTZljLAHpE4x-BDV9GXqD2gWjIg.JPEG/%EC%A0%9C%EB%AA%A9%EC%9D%84_%EC%9E%85%EB%A0%A5%ED%95%98%EC%84%B8%EC%9A%94_(12).jpg?type=w773"
+    "gallery": [
+      "https://postfiles.pstatic.net/MjAyNjAzMjZfMjc0/MDAxNzc0NDk5MjE5OTIz.DAQ0EcfRFo_78NFv3ZlzYmOAklNaWA7OB7QtymvriLYg.YjwIbeeUnSSch6oIz-XBgK9ccDNevQ2MBHzx7XwQ220g.JPEG/KakaoTalk_20260110_152635219_02.jpg?type=w773",
+      "https://postfiles.pstatic.net/MjAyNjAzMjZfMjcg/MDAxNzc0NDk5MjE5OTMz.YTl3lBvhg9TrOeBs4fpQgA59K8b2a3-gBvR4nmdIi44g.1g9-L7JT0UVWTc4x8DlKwc878P1ZnPqoH5wls2kDWIwg.JPEG/KakaoTalk_20260110_152635219_03.jpg?type=w773",
+      "https://postfiles.pstatic.net/MjAyNjA0MDhfNjAg/MDAxNzc1NjE5NzAyOTIw.nu3X_-1c2M4DcaFXmHp_JonAewDIzSurkjahcjbjvjAg.07eeolz5uhKqacUTgoMli_AVc5DFFuQZW6nnDgh0m00g.JPEG/%EC%A0%9C%EB%AA%A9%EC%9D%84_%EC%9E%85%EB%A0%A5%ED%95%98%EC%84%B8%EC%9A%94_(16).jpg?type=w773",
+      "https://postfiles.pstatic.net/MjAyNjAzMjZfOTUg/MDAxNzc0NDk5MjE5OTIy.WJnXQEYLl9SWjWd3uz9BbJPfsqN-cnTNIX51n3vsK28g.p3dWcnkbZvJZr41WdoJTkanANdZcPbWFyj7jIUnuGgMg.JPEG/KakaoTalk_20260110_152635219_04.jpg?type=w773",
+      "https://postfiles.pstatic.net/MjAyNjAzMjZfMTIx/MDAxNzc0NDk5MTc2NzY0.OLfra6MtWLPxoEgQb5ei0yYOfIpzJU8a77L2f2E-xcwg.ZIvY5ikwCTW1RI--Fp3_w_GUXPFUtkPMlLR2byKNcm0g.JPEG/KakaoTalk_20260109_124646049_03.jpg?type=w773"
+    ]
   },
   {
     "id": "weight-scale",
@@ -533,7 +533,10 @@
     "description": "랩핑과 동시에 파렛트의 무게를 측정할 수 있는 로드셀이 내장된 스마트 모델입니다.",
     "image": "https://postfiles.pstatic.net/MjAyNjAzMjRfNTAg/MDAxNzc0MzUzMDUzNDYy.Xpu0Xwi55qb1b3hLYkM4SUAyCCbOf9aVPXSVYUdGF0Ag.yFwJFY7ycz4XhteghoL2Pzd1qNMuLz9R-eqej6H0zdIg.JPEG/%EB%9E%A9%ED%95%91%EA%B8%B0_%EB%88%84%EB%81%BC_2.jpg?type=w773",
     "recommendedIndustries": [
-      "정확한 중량 확인이 필요한 수출 물류 업체"
+      "정확한 중량 확인이 필요한 수출 물류 업체",
+      "원자재 입출고 관리가 엄격한 제조 공장",
+      "제품별 중량 데이터 기록이 필요한 식품 및 화학 산업",
+      "과적 방지 및 운송 비용 최적화가 필요한 유통 센터"
     ],
     "order": 5,
     "title": "로드셀 랩핑기",
@@ -546,9 +549,17 @@
       {
         "title": "고정밀 계량",
         "description": "4개의 독립된 로드셀이 하중을 균등하게 감지하여, 적재물이 한쪽으로 치우쳐도 정확한 중량을 산출합니다."
+      },
+      {
+        "title": "스마트 데이터 관리",
+        "description": "중량 데이터를 즉시 확인하고 기록할 수 있어, 재고 관리 및 출하 증빙 자료로 활용하기 매우 용이합니다."
+      },
+      {
+        "title": "내구성 및 안정성",
+        "description": "중량 측정 센서를 외부 충격으로부터 보호하는 특수 설계로 장기간 안정적인 정밀도를 유지합니다."
       }
     ],
     "videoUrls": [],
-    "detailedDescription": "로드셀 랩핑기는 턴테이블 하단에 4개의 고정밀 로드셀(Load Cell)을 장착하여, 파렛트 랩핑 작업과 동시에 적재물의 무게를 실시간으로 측정할 수 있는 스마트 물류 솔루션입니다."
+    "detailedDescription": "로드셀 랩핑기는 턴테이블 하단에 4개의 고정밀 로드셀(Load Cell)을 장착하여, 파렛트 랩핑 작업과 동시에 적재물의 무게를 실시간으로 측정할 수 있는 스마트 물류 솔루션입니다.\n\n기존에는 포장 후 별도의 계근대로 이동하여 무게를 측정해야 했으나, 본 장비를 사용하면 이동 동선을 획기적으로 줄일 수 있어 작업 효율이 대폭 향상됩니다. 특히 정확한 중량 확인이 필요한 수출용 화물이나 원자재 관리 현장에서 필수적인 장비입니다."
   }
 ]
