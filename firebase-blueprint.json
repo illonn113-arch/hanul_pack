@@ -1,0 +1,111 @@
+{
+  "entities": {
+    "SiteConfig": {
+      "title": "Site Configuration",
+      "description": "Global settings for the website.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "heroTitle": { "type": "string" },
+        "heroSubtitle": { "type": "string" },
+        "contactEmail": { "type": "string", "format": "email" },
+        "contactPhone": { "type": "string" },
+        "address": { "type": "string" },
+        "socialLinks": {
+          "type": "object",
+          "properties": {
+            "instagram": { "type": "string" },
+            "facebook": { "type": "string" },
+            "blog": { "type": "string" },
+            "smartStore": { "type": "string" }
+          }
+        },
+        "theme": {
+          "type": "object",
+          "properties": {
+            "primaryColor": { "type": "string" },
+            "backgroundColor": { "type": "string" },
+            "textColor": { "type": "string" },
+            "fontFamily": { "type": "string" }
+          }
+        }
+      },
+      "required": ["name", "description", "theme"]
+    },
+    "Post": {
+      "title": "Post",
+      "description": "A blog post or portfolio item.",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "content": { "type": "string" },
+        "category": { "type": "string", "enum": ["logo", "website", "other"] },
+        "imageUrl": { "type": "string" },
+        "createdAt": { "type": "number" },
+        "updatedAt": { "type": "number" }
+      },
+      "required": ["title", "content", "category", "createdAt"]
+    },
+    "User": {
+      "title": "User",
+      "description": "User profile and roles.",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string", "format": "email" },
+        "role": { "type": "string", "enum": ["admin", "user"] }
+      },
+      "required": ["email", "role"]
+    },
+    "Inquiry": {
+      "title": "Inquiry",
+      "description": "A contact form submission.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "phone": { "type": "string" },
+        "company": { "type": "string" },
+        "message": { "type": "string" },
+        "createdAt": { "type": "number" },
+        "status": { "type": "string", "enum": ["new", "read", "replied"] }
+      },
+      "required": ["name", "email", "phone", "message", "createdAt"]
+    },
+    "Option": {
+      "title": "Additional Option",
+      "description": "An additional option for the wrapping machines.",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "icon": { "type": "string" },
+        "image": { "type": "string" },
+        "order": { "type": "number" }
+      },
+      "required": ["title", "description", "image", "order"]
+    }
+  },
+  "firestore": {
+    "/siteConfig/main": {
+      "schema": "SiteConfig",
+      "description": "The main site configuration."
+    },
+    "/posts/{postId}": {
+      "schema": "Post",
+      "description": "A collection of posts."
+    },
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "A collection of users."
+    },
+    "/inquiries/{inquiryId}": {
+      "schema": "Inquiry",
+      "description": "A collection of contact form submissions."
+    },
+    "/options/{optionId}": {
+      "schema": "Option",
+      "description": "A collection of additional options."
+    }
+  }
+}

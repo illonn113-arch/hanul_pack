@@ -1,0 +1,144 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // ===============================================================
+    // Assumed Data Model
+    // ===============================================================
+    //
+    // Collection: siteConfig
+    // Document ID: main
+    // Fields:
+    //   - name: string (required)
+    //   - description: string (required)
+    //   - heroTitle: string
+    //   - heroSubtitle: string
+    //   - contactEmail: string
+    //   - contactPhone: string
+    //   - address: string
+    //   - socialLinks: map
+    //   - theme: map (required)
+    //
+    // Collection: posts
+    // Document ID: auto-generated
+    // Fields:
+    //   - title: string (required)
+    //   - content: string (required)
+    //   - category: string (required, enum: ['logo', 'website', 'other'])
+    //   - imageUrl: string
+    //   - createdAt: number (required)
+    //   - updatedAt: number
+    //
+    // Collection: users
+    // Document ID: auth.uid
+    // Fields:
+    //   - email: string (required)
+    //   - role: string (required, enum: ['admin', 'user'])
+    //
+    // Collection: inquiries
+    // Document ID: auto-generated
+    // Fields:
+    //   - name: string (required)
+    //   - email: string (required)
+    //   - phone: string (required)
+    //   - company: string
+    //   - message: string (required)
+    //   - createdAt: number (required)
+    //   - status: string (enum: ['new', 'read', 'replied'])
+    //
+    // ===============================================================
+
+    // ===============================================================
+    // Helper Functions
+    // ===============================================================
+    
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+    
+    function isAdmin() {
+      return isAuthenticated() && 
+        ((exists(/databases/$(database)/documents/users/$(request.auth.uid)) && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin') ||
+         (request.auth.token.email == "illonn113@gmail.com" && request.auth.token.email_verified == true));
+    }
+
+    function isValidSiteConfig(data) {
+      return data.keys().hasAll(['name', 'description', 'theme']) &&
+             data.name is string && data.name.size() > 0 && data.name.size() < 100 &&
+             data.description is string && data.description.size() < 1000 &&
+             data.theme is map;
+    }
+
+    function isValidPost(data) {
+      return data.keys().hasAll(['title', 'content', 'category', 'createdAt']) &&
+             data.title is string && data.title.size() > 0 && data.title.size() < 200 &&
+             data.content is string && data.content.size() < 10000 &&
+             data.category in ['pallet-wrapper', 'taping-machine', 'packaging-materials', 'portfolio', 'other'] &&
+             data.createdAt is number &&
+             (!('imageUrls' in data) || data.imageUrls is list) &&
+             (!('order' in data) || data.order is number);
+    }
+
+    function isValidUser(data) {
+      return data.keys().hasAll(['email', 'role']) &&
+             data.email is string &&
+             data.role in ['admin', 'user'];
+    }
+
+    function isValidInquiry(data) {
+      return data.keys().hasAll(['name', 'email', 'phone', 'message', 'createdAt']) &&
+             data.name is string && data.name.size() > 0 && data.name.size() < 100 &&
+             data.email is string && data.email.size() < 200 &&
+             data.phone is string && data.phone.size() < 50 &&
+             data.message is string && data.message.size() < 5000 &&
+             data.createdAt is number;
+    }
+
+    function isValidOption(data) {
+      return data.keys().hasAll(['title', 'description', 'image', 'order']) &&
+             data.title is string && data.title.size() > 0 && data.title.size() < 100 &&
+             data.description is string && data.description.size() < 1000 &&
+             data.image is string &&
+             data.order is number;
+    }
+
+    // ===============================================================
+    // Rules
+    // ===============================================================
+
+    match /siteConfig/main {
+      allow read: if true;
+      allow write: if isAdmin() && isValidSiteConfig(request.resource.data);
+    }
+
+    match /posts/{postId} {
+      allow read: if true;
+      allow create: if isAdmin() && isValidPost(request.resource.data);
+      allow update: if isAdmin() && isValidPost(request.resource.data);
+      allow delete: if isAdmin();
+    }
+
+    match /users/{userId} {
+      allow read: if isOwner(userId) || isAdmin();
+      allow create: if isAuthenticated() && isOwner(userId) && isValidUser(request.resource.data) && (request.resource.data.role == 'user' || isAdmin());
+      allow update: if isAuthenticated() && isOwner(userId) && isValidUser(request.resource.data) && (request.resource.data.role == resource.data.role || isAdmin());
+    }
+
+    match /inquiries/{inquiryId} {
+      allow read: if isAdmin();
+      allow create: if isValidInquiry(request.resource.data);
+      allow update: if isAdmin();
+      allow delete: if isAdmin();
+    }
+
+    match /options/{optionId} {
+      allow read: if true;
+      allow create: if isAdmin() && isValidOption(request.resource.data);
+      allow update: if isAdmin() && isValidOption(request.resource.data);
+      allow delete: if isAdmin();
+    }
+  }
+}
