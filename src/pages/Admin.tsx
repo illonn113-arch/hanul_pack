@@ -2,15 +2,45 @@ import AdminSidebar from '../components/AdminSidebar';
 import { usePosts } from '../hooks/usePosts';
 import { useInquiries } from '../hooks/useInquiries';
 import { useSiteConfig } from '../hooks/useSiteConfig';
-import { FileText, Eye, MessageSquare, TrendingUp, Database } from 'lucide-react';
+import { FileText, Eye, MessageSquare, TrendingUp, Database, RefreshCw } from 'lucide-react';
 import { motion } from 'motion/react';
+import { fetchPalletWrappers, savePalletWrappers } from '../data/palletWrappers';
+import { fetchOptions, saveOptions } from '../data/options';
+import { useState } from 'react';
 
 export default function Admin() {
   const { posts, addPost } = usePosts();
   const { inquiries } = useInquiries();
   const { config } = useSiteConfig();
+  const [isSyncing, setIsSyncing] = useState(false);
 
   const newInquiriesCount = inquiries.filter(i => i.status === 'new').length;
+
+  const syncToCloud = async () => {
+    if (!confirm('로컬 데이터를 클라우드(Firestore)로 동기화하시겠습니까? 이 작업은 배포된 사이트에서 데이터가 보이게 하는 데 필수적입니다.')) return;
+    
+    setIsSyncing(true);
+    try {
+      // 1. Sync Pallet Wrappers
+      const wrappers = await fetch("/api/wrappers").then(res => res.json()).catch(() => []);
+      if (wrappers.length > 0) {
+        await savePalletWrappers(wrappers);
+      }
+
+      // 2. Sync Options
+      const options = await fetch("/api/options").then(res => res.json()).catch(() => []);
+      if (options.length > 0) {
+        await saveOptions(options);
+      }
+
+      alert('데이터 동기화가 완료되었습니다. 이제 배포된 사이트에서도 데이터가 정상적으로 표시됩니다.');
+    } catch (err) {
+      console.error(err);
+      alert('동기화 중 오류가 발생했습니다. 서버가 실행 중인지 확인해 주세요.');
+    } finally {
+      setIsSyncing(false);
+    }
+  };
 
   const seedData = async () => {
     if (posts.length > 0) {
@@ -67,13 +97,23 @@ export default function Admin() {
             <h1 className="text-4xl font-black tracking-tighter mb-2">대시보드</h1>
             <p className="text-gray-500">한울팩의 현재 상태를 한눈에 확인하세요.</p>
           </div>
-          <button
-            onClick={seedData}
-            className="px-6 py-3 bg-white/5 hover:bg-white/10 text-white font-bold rounded-xl flex items-center gap-2 transition-all border border-white/10"
-          >
-            <Database size={20} />
-            샘플 데이터 생성
-          </button>
+          <div className="flex gap-4">
+            <button
+              onClick={syncToCloud}
+              disabled={isSyncing}
+              className={`px-6 py-3 ${isSyncing ? 'bg-gray-500' : 'bg-blue-600 hover:bg-blue-700'} text-white font-bold rounded-xl flex items-center gap-2 transition-all shadow-lg shadow-blue-900/20`}
+            >
+              <RefreshCw size={20} className={isSyncing ? 'animate-spin' : ''} />
+              {isSyncing ? '동기화 중...' : '클라우드 데이터 동기화'}
+            </button>
+            <button
+              onClick={seedData}
+              className="px-6 py-3 bg-white/5 hover:bg-white/10 text-white font-bold rounded-xl flex items-center gap-2 transition-all border border-white/10"
+            >
+              <Database size={20} />
+              샘플 데이터 생성
+            </button>
+          </div>
         </header>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">

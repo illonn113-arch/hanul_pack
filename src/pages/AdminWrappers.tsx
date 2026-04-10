@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Plus, Edit2, Trash2, Save, X, Image as ImageIcon, CheckCircle, AlertCircle, ChevronRight, Maximize2, ChevronUp, ChevronDown, ChevronLeft, Upload } from 'lucide-react';
 import AdminSidebar from '../components/AdminSidebar';
-import { fetchPalletWrappers, savePalletWrappers, type PalletWrapper } from '../data/palletWrappers';
+import { fetchPalletWrappers, savePalletWrappers, deletePalletWrapper, type PalletWrapper } from '../data/palletWrappers';
 import { getYoutubeEmbedUrl } from '../lib/utils';
 
 export default function AdminWrappers() {
@@ -63,6 +63,7 @@ export default function AdminWrappers() {
     if (!confirm('정말 삭제하시겠습니까?')) return;
 
     try {
+      await deletePalletWrapper(id);
       const updatedWrappers = wrappers.filter(w => w.id !== id);
       await savePalletWrappers(updatedWrappers);
       setWrappers(updatedWrappers);

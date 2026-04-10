@@ -98,11 +98,29 @@ service cloud.firestore {
     }
 
     function isValidOption(data) {
-      return data.keys().hasAll(['title', 'description', 'image', 'order']) &&
-             data.title is string && data.title.size() > 0 && data.title.size() < 100 &&
-             data.description is string && data.description.size() < 1000 &&
+      return data.keys().hasAll(['title', 'description', 'image']) &&
+             data.title is string && data.title.size() > 0 && data.title.size() < 200 &&
+             data.description is string && data.description.size() < 2000 &&
              data.image is string &&
-             data.order is number;
+             (!('order' in data) || data.order is number) &&
+             (!('gallery' in data) || data.gallery is list) &&
+             (!('details' in data) || data.details is list) &&
+             (!('advantages' in data) || data.advantages is list);
+    }
+
+    function isValidWrapper(data) {
+      return data.keys().hasAll(['title', 'subtitle', 'description', 'image']) &&
+             data.title is string && data.title.size() > 0 && data.title.size() < 200 &&
+             data.subtitle is string && data.subtitle.size() < 200 &&
+             data.description is string && data.description.size() < 2000 &&
+             data.image is string &&
+             (!('order' in data) || data.order is number) &&
+             (!('gallery' in data) || data.gallery is list) &&
+             (!('fitImages' in data) || data.fitImages is list) &&
+             (!('specs' in data) || data.specs is list) &&
+             (!('performance' in data) || data.performance is list) &&
+             (!('advantages' in data) || data.advantages is list) &&
+             (!('recommendedIndustries' in data) || data.recommendedIndustries is list);
     }
 
     // ===============================================================
@@ -138,6 +156,13 @@ service cloud.firestore {
       allow read: if true;
       allow create: if isAdmin() && isValidOption(request.resource.data);
       allow update: if isAdmin() && isValidOption(request.resource.data);
+      allow delete: if isAdmin();
+    }
+
+    match /wrappers/{wrapperId} {
+      allow read: if true;
+      allow create: if isAdmin() && isValidWrapper(request.resource.data);
+      allow update: if isAdmin() && isValidWrapper(request.resource.data);
       allow delete: if isAdmin();
     }
   }
