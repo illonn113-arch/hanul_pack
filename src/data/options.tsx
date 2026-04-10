@@ -189,7 +189,11 @@ export const fetchOptions = async (): Promise<OptionItem[]> => {
       return DEFAULT_OPTIONS;
     }
     
-    return options;
+    // Merge to ensure we have all default options even if cloud is missing some
+    return DEFAULT_OPTIONS.map(defaultOption => {
+      const cloudOption = options.find(o => o.id === defaultOption.id);
+      return cloudOption ? { ...defaultOption, ...cloudOption } : defaultOption;
+    });
   } catch (error) {
     console.error('Firestore fetch error, falling back to defaults:', error);
     return DEFAULT_OPTIONS;

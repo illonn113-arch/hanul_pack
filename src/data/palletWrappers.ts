@@ -246,7 +246,7 @@ export const DEFAULT_WRAPPERS: PalletWrapper[] = [
       "턴테이블, 헤드, 필름연신 조절 기능",
       "슬로우 스타트/스톱 기능"
     ],
-    "detailedDescription": "리모콘 랩핑기는 무선 제어 기술을 도입하여 지게차 운전자가 차량에서 내리지 않고도 모든 과정을 제어할 수 있는 스마트 물류 장비입니다.\n\n지게차에서 내리고 타는 반복적인 동작을 없애주어 작업자의 피로도를 획기적으로 줄여주며, 포장 작업 시간을 단축시켜 전체적인 물류 흐름을 원활하게 합니다.\n\n**주요 특징**\n\n• **원거리 무선 제어:** 최대 50m 거리에서도 안정적인 조작이 가능하여 넓은 작업 현장에서도 효율적입니다.\n• **작업 효율 극대화:** 지게차 승하차 시간을 절약하여 기존 대비 약 30% 이상의 작업 속도 향상을 기대할 수 있습니다.\n• **안전성 확보:** 작업자가 기계와 일정 거리를 유지한 상태에서 조작하므로 안전 사고 예방에 효과적입니다.\n• **간편한 조작:** 직관적인 리모콘 버튼 구성으로 누구나 쉽게 숙달할 수 있으며, 비상 정지 기능이 포함되어 있어 위급 상황 시 즉각적인 대처가 가능합니다.",
+    "detailedDescription": "리모콘 랩핑기는 무선 제어 기술을 도입하여 지게차 운전자가 차량에서 내리지 않고도 모든 과정을 제어할 수 있는 스마트 물류 장비입니다.\n\n지게차에서 내리고 타는 반복적인 동작을 없애주어 작업자의 피로도를 획기적으로 줄여주며, 포장 작업 시간을 단축시켜 전체적인 물류 흐름을 원활하게 합니다.\n\n**주요 특징**\n\n•원거리 무선 제어: 최대 50m 거리에서도 안정적인 조작이 가능하여 넓은 작업 현장에서도 효율적입니다.\n• 작업 효율 극대화: 지게차 승하차 시간을 절약하여 기존 대비 약 30% 이상의 작업 속도 향상을 기대할 수 있습니다.\n• 안전성 확보: 작업자가 기계와 일정 거리를 유지한 상태에서 조작하므로 안전 사고 예방에 효과적입니다.\n• 간편한 조작: 직관적인 리모콘 버튼 구성으로 누구나 쉽게 숙달할 수 있으며, 비상 정지 기능이 포함되어 있어 위급 상황 시 즉각적인 대처가 가능합니다.",
     "advantages": [
       { "title": "효율성", "description": "반복적인 승하차 과정을 생략하여 작업 속도를 획기적으로 높입니다." },
       { "title": "안전성", "description": "원거리 조작으로 작업자와 기계 간의 안전 거리를 확보합니다." },
@@ -366,7 +366,29 @@ export const fetchPalletWrappers = async (): Promise<PalletWrapper[]> => {
       return DEFAULT_WRAPPERS;
     }
     
-    return wrappers;
+    // Merge Firestore data with DEFAULT_WRAPPERS to ensure new fields (like Key Features) 
+    // are present even if the database hasn't been synced recently.
+    return DEFAULT_WRAPPERS.map(defaultWrapper => {
+      const cloudWrapper = wrappers.find(w => w.id === defaultWrapper.id);
+      if (!cloudWrapper) return defaultWrapper;
+      
+      // If the cloud version exists, we use it but ensure we keep the latest 
+      // detailedDescription if it contains the new "Key Features" marker
+      const hasKeyFeatures = cloudWrapper.detailedDescription?.includes('주요 특징');
+      const defaultHasKeyFeatures = defaultWrapper.detailedDescription.includes('주요 특징');
+
+      return {
+        ...defaultWrapper, // Start with latest code defaults
+        ...cloudWrapper,    // Overwrite with cloud data (images, etc.)
+        // Force the latest description if the cloud one is missing the new "Key Features"
+        detailedDescription: (!hasKeyFeatures && defaultHasKeyFeatures) 
+          ? defaultWrapper.detailedDescription 
+          : cloudWrapper.detailedDescription,
+        recommendedIndustries: (cloudWrapper.recommendedIndustries?.length === 0 && defaultWrapper.recommendedIndustries.length > 0)
+          ? defaultWrapper.recommendedIndustries
+          : cloudWrapper.recommendedIndustries
+      };
+    });
   } catch (error) {
     console.error('Firestore fetch error, falling back to defaults:', error);
     // Fallback to defaults even on error (e.g. permission denied or network error)
