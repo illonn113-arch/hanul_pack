@@ -58,21 +58,22 @@
       "슬로우 스타트/스톱 기능",
       "간편한 필름 텐션 조절"
     ],
-    "detailedDescription": "기본형 랩핑기는 가장 널리 사용되는 모델로, 다양한 산업 현장에서 파렛트 포장 작업을 자동화하는 데 최적화되어 있습니다.",
-    "advantages": [
+    "mainFeatures": [
       {
-        "title": "경제성",
-        "description": "합리적인 가격으로 고성능 랩핑 기능을 제공합니다."
+        "title": "경제적인 가격",
+        "description": "합리적인 비용으로 고성능 랩핑 자동화를 실현하여 물류 비용을 절감합니다."
       },
       {
-        "title": "내구성",
-        "description": "견고한 프레임 설계로 장기간 안정적인 사용이 가능합니다."
+        "title": "견고한 내구성",
+        "description": "고강도 강철 프레임과 검증된 부품을 사용하여 장기간 안정적인 사용이 가능합니다."
       },
       {
-        "title": "편의성",
-        "description": "누구나 쉽게 조작할 수 있는 직관적인 인터페이스와 현장 상황에 맞게 기판 위치를 왼쪽 or 오른쪽으로 변경할 수 있습니다.\n\n(현장에서도 쉽게 변경이 가능합니다.)"
+        "title": "사용자 편의성",
+        "description": "직관적인 PCB 제어 방식으로 누구나 쉽게 조작할 수 있으며, 현장 상황에 맞게 기판 위치를 왼쪽 또는 오른쪽으로 변경 가능합니다."
       }
     ],
+    "detailedDescription": "기본형 랩핑기는 가장 널리 사용되는 모델로, 다양한 산업 현장에서 파렛트 포장 작업을 자동화하는 데 최적화되어 있습니다.",
+    "advantages": [],
     "customizedInfo": {
       "description": "표준 사양 외에도 고객사의 작업 환경에 맞춘 특수 제작이 가능합니다.",
       "items": [
@@ -80,8 +81,7 @@
         "턴테이블 직경: 최대 3,000 파이(Φ)까지 제작 가능"
       ]
     },
-    "recommendedIndustries": [],
-    "order": 0
+    "recommendedIndustries": []
   },
   {
     "id": "power",
@@ -94,7 +94,12 @@
       "https://postfiles.pstatic.net/MjAyNjAzMjRfMTkw/MDAxNzc0MzUzMDk4MzIz.Z5-pujxDxpoyusZhSG33abbpugle1J3fj0kTOq7szmUg.KnPClhCbd5bTQIuKeACmEMfE3M5SinqiL45JmpQmjKgg.JPEG/KakaoTalk_20250808_182614515_01.jpg?type=w773",
       "https://postfiles.pstatic.net/MjAyNjAzMjRfMTUx/MDAxNzc0MzUzMTAwNzY1.Ko3vGp7I56V9kk4lOX_YuW0kc8IVtoiUJ1d-e4gSd6Ig.rRorK2k-BINBMueSZs6FMjY4w1PHw7Hug3uBtdivBTgg.JPEG/KakaoTalk_20250808_182614515_04.jpg?type=w773",
       "https://postfiles.pstatic.net/MjAyNjAzMjRfODcg/MDAxNzc0MzU3NTM2NTk0.BuMLk88Bl0fBykC2AVt44cdaOOVhzGFNiykZjQWfWs0g.pITwI28rruqVBrakvZ6b0a3oJ1P6kIjUlo9c6rAulYQg.JPEG/SE-f669b6a8-b71d-47c1-b919-171f950bdd64.jpg?type=w773",
-      "https://postfiles.pstatic.net/MjAyNjAzMjZfMjYg/MDAxNzc0NDk1NTgyMTUz.iIoq1onkOTe8Oo1-2aAhRZ2DhAXAiff-SExw33Klp1Ag.UbDaNxKqjt5vKOGug5T9qUvFNlcwTFbinV68aH3d2iQg.JPEG/%ED%8C%8C%EC%9B%8C%ED%98%95_%EA%B8%B0%ED%8C%90.jpg?type=w773"
+      "https://postfiles.pstatic.net/MjAyNjAzMjlfODgg/MDAxNzc0Nzc1ODc0NTkx.aqBfhs0B6QtfUCPHE4aidbJlpH0X4xL0ys4Wq9QiN10g.CrcFsDTtQuZpsuz-lbJfs0dSZong9_MGCyc-un5jdlIg.JPEG/20260329_135622.jpg?type=w773",
+      "https://postfiles.pstatic.net/MjAyNjAzMjlfMTQg/MDAxNzc0Nzc1ODc0NjE2._XcVf5bFkxZdpdX01vnCuN72GUDOjUon_oEU8xiZUvsg.ZlEbQxkszC0wmWeaKZFUrtYmgZgeLqleWftRcgv2yFwg.JPEG/20260329_135750.jpg?type=w773",
+      "https://postfiles.pstatic.net/MjAyNjAzMjlfMTgz/MDAxNzc0Nzc1ODc0NTQ1.NeCjjQRnRVPpFwtwTWEC_kpa6riTYNLRlfyz5nAZpiYg.3zXCY-_00T5gWHij0T2JlHsOOxYp6iU-_T3tdDxE6G0g.JPEG/KakaoTalk_20260327_095536087_01.jpg?type=w773",
+      "https://postfiles.pstatic.net/MjAyNjAzMjlfNzUg/MDAxNzc0Nzc2MTk4MjE0.e4H_UF4KvFzkkHIzD-Ka1gDAr6XSN7AoTrr8nOTqt4og.k72q2t9m0Rbq2dzTqgidGJIY6SQoIZhNeciS7wertAIg.JPEG/KakaoTalk_20260327_095536087.jpg?type=w773",
+      "https://postfiles.pstatic.net/MjAyNjAzMjZfMjYg/MDAxNzc0NDk1NTgyMTUz.iIoq1onkOTe8Oo1-2aAhRZ2DhAXAiff-SExw33Klp1Ag.UbDaNxKqjt5vKOGug5T9qUvFNlcwTFbinV68aH3d2iQg.JPEG/%ED%8C%8C%EC%9B%8C%ED%98%95_%EA%B8%B0%ED%8C%90.jpg?type=w773",
+      "https://postfiles.pstatic.net/MjAyNjAzMjlfMjQ0/MDAxNzc0Nzc2MjczMjc4.xrGPZ5fZJj8xes-DUoseHRFDNqm1_18zWJ7FCCnxRp8g.Jz8eWW1_Sw844g2q1tYBff-1R5oKqRZFg8ba87-kGBcg.JPEG/%EC%A0%9C%EB%AA%A9%EC%9D%84_%EC%9E%85%EB%A0%A5%ED%95%98%EC%84%B8%EC%9A%94_(2).jpg?type=w773"
     ],
     "fitImages": [
       "%EA%B8%B0%ED%8C%90",
@@ -144,25 +149,26 @@
       "간편한 필름 교체",
       "슬로우 스타트/스톱 기능"
     ],
-    "detailedDescription": "파워형 랩핑기는 기본형 랩핑기에 추가로 모터와 인버터를 부착하여 랩핑 시 인장력을 정밀 조절하는 기능이 추가되었습니다. \n\n필름 연신 장치를 통해 필름을 미리 늘려주어 랩 소모량을 최소화하고 동일한 양의 필름으로 더 많은 파렛트를 랩핑할 수 있습니다.\n\n**이런 현장에 추천드립니다.**\n\n- 높이 대비 가볍고 불안정한 제품(랩핑 중 제품이 이탈되거나 무너지는 경우)\n- 얇은 박스(기본형을 사용 시 각 모서리 부분이 뭉개지는 현상이 발생할 수 있습니다.)",
-    "advantages": [
+    "mainFeatures": [
       {
-        "title": "비용 절감",
-        "description": "필름 연신 기능을 통해 필름 사용량을 획기적으로 줄여줍니다."
+        "title": "필름 연신 장치 (비용 절감)",
+        "description": "필름을 최대 300%까지 늘려주어 랩 소모량을 획기적으로 절감하고 물류 비용을 낮춥니다."
       },
       {
-        "title": "포장 품질",
-        "description": "랩의 복원력을 바탕으로 파렛트 적재물을 더욱 단단하게 고정합니다."
+        "title": "포장 품질 향상",
+        "description": "랩의 강력한 복원력을 바탕으로 파렛트 적재물을 더욱 단단하고 견고하게 고정합니다."
       },
       {
-        "title": "고성능",
-        "description": "연속적인 대량 작업에도 안정적인 성능을 발휘합니다."
+        "title": "경량물 포장 최적화",
+        "description": "인장력 정밀 조절 기능으로 가벼운 제품도 무너짐이나 변형 없이 안전하게 랩핑 가능합니다."
       },
       {
-        "title": "편의성",
-        "description": "누구나 쉽게 조작할 수 있는 직관적인 인터페이스와 현장 상황에 맞게 기판 위치를 왼쪽 or 오른쪽으로 변경할 수 있습니다.\n\n(현장에서도 쉽게 변경이 가능합니다.)"
+        "title": "고효율 및 편의성",
+        "description": "연속적인 대량 작업에도 안정적인 성능을 발휘하며, 직관적인 인터페이스로 누구나 쉽게 조작 가능합니다."
       }
     ],
+    "detailedDescription": "파워형 랩핑기는 기본형 랩핑기에 추가로 모터와 인버터를 부착하여 랩핑 시 인장력을 정밀 조절하는 기능이 추가되었습니다. \n\n필름 연신 장치를 통해 필름을 미리 늘려주어 랩 소모량을 최소화하고 동일한 양의 필름으로 더 많은 파렛트를 랩핑할 수 있습니다.\n\n**이런 현장에 추천드립니다.**\n\n- 높이 대비 가볍고 불안정한 제품(랩핑 중 제품이 이탈되거나 무너지는 경우)\n- 얇은 박스(기본형을 사용 시 각 모서리 부분이 뭉개지는 현상이 발생할 수 있습니다.)",
+    "advantages": [],
     "customizedInfo": {
       "description": "표준 사양 외에도 고객사의 작업 환경에 맞춘 특수 제작이 가능합니다.",
       "items": [
@@ -170,11 +176,7 @@
         "턴테이블 직경: 최대 3,000 파이(Φ)까지 제작 가능"
       ]
     },
-    "recommendedIndustries": [],
-    "order": 1,
-    "videoUrls": [
-      "https://www.youtube.com/embed/KtKSQLOuoj0"
-    ]
+    "recommendedIndustries": []
   },
   {
     "id": "top-press",
@@ -191,7 +193,10 @@
     "gallery": [
       "https://postfiles.pstatic.net/MjAyNjAzMjZfMjU1/MDAxNzc0NDk4MTQ2MTkz.1xmk0R8sr8XJDXuDqApHcaRe7fkQt8G2Z657HuIUr5Ag.PEVBhLA2ra6lcIYL10oldEb8EGETv99TIoq4Cl5sQ1gg.JPEG/%EC%A0%95%EB%A9%B4.jpg?type=w773",
       "https://postfiles.pstatic.net/MjAyNjAzMjZfMjEy/MDAxNzc0NDk4MTQ2MTQ1.s3SYxo1TxOFpQ8MxiknTnyuQT9duC1xGQ6jPEguIKD4g.F08MmizsmtTXIECZxee4N7jGIMboCD_4uNhb5XLCtzEg.JPEG/%EC%A2%8C%EC%B8%A1%EB%A9%B4.jpg?type=w773",
-      "https://postfiles.pstatic.net/MjAyNjAzMjZfMTA1/MDAxNzc0NDk4MTQ2MTkw.FaaUN6ZM68lh5lRhvaqz5Hgq8V6VObcJ_2nN16kDBvEg.tn9A4osgY6zi8l95lnoTQIHVd_HdC47oqTQxj6IQtF8g.JPEG/%EC%9A%B0%EC%B8%A1%EB%A9%B4.jpg?type=w773"
+      "https://postfiles.pstatic.net/MjAyNjAzMjZfMTA1/MDAxNzc0NDk4MTQ2MTkw.FaaUN6ZM68lh5lRhvaqz5Hgq8V6VObcJ_2nN16kDBvEg.tn9A4osgY6zi8l95lnoTQIHVd_HdC47oqTQxj6IQtF8g.JPEG/%EC%9A%B0%EC%B8%A1%EB%A9%B4.jpg?type=w773",
+      "https://postfiles.pstatic.net/MjAyNjAzMjZfMjg4/MDAxNzc0NDk4MTY3NTIw.K2eNzLu5hkSyRWvw28_h4ghF4xMhz-H7wKbOHmyzEb8g.QICdDzPM_V6mClXzrloKWnAqcvwyGVSiH80Nr0pEiZ4g.JPEG/KakaoTalk_20250819_170207646_08.jpg?type=w773",
+      "https://postfiles.pstatic.net/MjAyNjAzMjZfMjk5/MDAxNzc0NDk4MTY3NTI4.KHc0eaioR_HiUlydoPB0LGAtMr-lYi_c7shDkHOvP3gg.oviGSgFbhUtmdEN-n7Y7amMYeB2m3Hixbt8ceKiibu4g.JPEG/KakaoTalk_20250819_170207646_09.jpg?type=w773",
+      "https://postfiles.pstatic.net/MjAyNjAzMjZfMTAw/MDAxNzc0NDk4MTQ2MTc3.9KpiaCHm-sWyOnWERhcucblVpuZkzkUgEgAEiHigRK8g.wGWJy3zRNrRgRZxTwRHUHsyHApN0OhL2hzISwIFBbI8g.JPEG/KakaoTalk_20250819_170207646_05.jpg?type=w773"
     ],
     "fitImages": [
       "%EA%B8%B0%ED%8C%90",
@@ -238,21 +243,26 @@
       "슬로우 스타트/스톱 기능",
       "간편한 필름 텐션 조절"
     ],
-    "detailedDescription": "탑프레스 랩핑기는 상단 압착 장치를 통해 가벼운 제품이나 불안정한 적재물을 고정하여 안전하게 랩핑할 수 있도록 설계되었습니다.",
-    "advantages": [
+    "mainFeatures": [
       {
-        "title": "안정성",
-        "description": "회전 중 제품이 흔들리거나 쏟아지는 것을 완벽하게 방지합니다."
+        "title": "상단 압착 시스템 (안정성)",
+        "description": "가벼운 박스나 흔들리기 쉬운 적재물을 위에서 단단히 눌러주어 회전 중 무너짐이나 쏟아짐을 완벽하게 방지합니다."
       },
       {
-        "title": "범용성",
-        "description": "다양한 높이와 크기의 제품에 맞춰 압착 높이가 자동 조절됩니다."
+        "title": "자동 높이 감지 (범용성)",
+        "description": "다양한 높이와 크기의 제품을 센서가 자동으로 감지하여 압착판의 높이를 최적으로 조절합니다."
       },
       {
-        "title": "안전성",
-        "description": "상단 프레스 하강 시 제품을 감지하는 안전 센서가 기본 탑재되어 있습니다."
+        "title": "안전 시스템 탑재",
+        "description": "프레스 하강 시 장애물을 감지하는 안전 센서가 기본 탑재되어 작업자의 안전을 최우선으로 합니다."
+      },
+      {
+        "title": "정밀 회전 제어",
+        "description": "상단 고정 상태에서도 부드러운 회전과 랩핑을 지원하여 완벽한 포장 품질을 구현합니다."
       }
     ],
+    "detailedDescription": "탑프레스 랩핑기는 상단 압착 장치를 통해 가벼운 제품이나 불안정한 적재물을 고정하여 안전하게 랩핑할 수 있도록 설계되었습니다.",
+    "advantages": [],
     "recommendedIndustries": [
       "가벼운 플라스틱 용기 제조 업체",
       "높이가 높고 폭이 좁은 박스 포장 업체",
@@ -265,8 +275,7 @@
         "턴테이블 직경: 최대 3,000 파이(Φ)까지 제작 가능",
         "압착 원판: 300~1000mm 사이즈 주문제작 가능"
       ]
-    },
-    "order": 2
+    }
   },
   {
     "id": "remote",
@@ -277,13 +286,22 @@
     "gallery": [
       "https://postfiles.pstatic.net/MjAyNjA0MDlfMTU3/MDAxNzc1NzA3NjUzMDEx.R8uADSSkmH2HbELOfzL63zn9iP8ebhsS5nFQDMKi_s4g.Xe4ivI_JaTd6BGUed-LGIOa0s_KT61Y3VVcGUPnQK2Ag.JPEG/20260329_141745.jpg?type=w773",
       "https://postfiles.pstatic.net/MjAyNjA0MDlfMTMz/MDAxNzc1NzA3NjYyMjg4.ugCsaBokfdHGhq4TZTRiK0pdiDOWpllm7jI3IkvUoCAg.lwWmmM93jN5qUjR_qlSWNRNLZE2awGe6wMGSk1qsP6Eg.JPEG/20260329_141825.jpg?type=w773",
-      "https://postfiles.pstatic.net/MjAyNjA0MDlfMTky/MDAxNzc1NzA3NzM0NzY1.QlaUHAOENXGpCXrlgu5vkdTweCCXknJZm8qAahM5A8Qg.5dYohGqOWUuGxVlHsur85Dxti7XgD0d-ogwV3Lsf94Yg.JPEG/20260312_122823.jpg?type=w773"
+      "https://postfiles.pstatic.net/MjAyNjA0MDlfMTky/MDAxNzc1NzA3NzM0NzY1.QlaUHAOENXGpCXrlgu5vkdTweCCXknJZm8qAahM5A8Qg.5dYohGqOWUuGxVlHsur85Dxti7XgD0d-ogwV3Lsf94Yg.JPEG/20260312_122823.jpg?type=w773",
+      "https://postfiles.pstatic.net/MjAyNjA0MDlfMTMg/MDAxNzc1NzA3Njk0ODk1.m_qrq4GLY3EGeCckFnSxjOmKEOQLM8Jr1J-zSw-ViGkg.nF3UH9XgY9StLtFuzFeoRdPfqKeHIDChZVq610237BAg.JPEG/20260329_141806.jpg?type=w773",
+      "https://postfiles.pstatic.net/MjAyNjA0MDlfNDUg/MDAxNzc1NzA3Njk3ODgy.4M9-BEQdabsU4Lzw2Ay5ODr6Y9QTmt8YTQx145shetQg.0IYiDPYNmmedgOgeEIBslNILS3sYKuZQFxWpTNQGXMwg.JPEG/20260329_141918.jpg?type=w773",
+      "https://postfiles.pstatic.net/MjAyNjA0MDlfMjMw/MDAxNzc1NzA3NzAwODc2.SRmrOpOmRl1zU96CVfdibdmtZIEJzSrPHBfw_tKjqLkg.gMdU-cgbEcNKnxyybEZ5EZ0MG5un8H-qm908PiuYOLkg.JPEG/20260329_141830.jpg?type=w773",
+      "https://postfiles.pstatic.net/MjAyNjA0MDlfMTA0/MDAxNzc1NzA3NzYxMDM0.YkNhuAPKa8GMzd-Ke_wxxlve_Gc-zK5LkNFZkqbGPFEg.HYQqztO4GNTv4BehWQ94Y2BZQUM-lnyodVq0JBNoh80g.JPEG/20260312_122814.jpg?type=w773",
+      "https://postfiles.pstatic.net/MjAyNjA0MDlfNTAg/MDAxNzc1NzA3NzY2Nzg5.jKNcqmTO1mPIAq_Nt0kvtN14nnI1zpP7dMu-ATPtmfAg.Gf2D1oBBtouqRg1hBY4dAvuArKVrA7SC86EYUbm9dGsg.JPEG/20260312_122817.jpg?type=w773",
+      "https://mblogvideo-phinf.pstatic.net/MjAyNjA0MDlfMTEz/MDAxNzc1NzE4NjQ0MzI5.q_zcO27tqdPOOBA6bBYzg6TKxR0A8jwdm5msEufCAjYg.Ub-L6fI--n9nCWwP5SiqovfRmrlHbXthTnRri4C2hX0g.GIF/20260329_152216.gif?type=mp4w800",
+      "https://postfiles.pstatic.net/MjAyNjA0MDlfMjcy/MDAxNzc1NzA3Nzg1ODM1.yh01C777tra20hnKdFwTU76TlFnn_-tF88dMlz0g_Igg.5DWpxI4ODziOqsQ6IfKJ04nTUPoh-EzuZYwXzWMCJzgg.JPEG/KakaoTalk_20260329_173507463.jpg?type=w773",
+      "https://postfiles.pstatic.net/MjAyNjA0MDlfMzQg/MDAxNzc1NzA4MzE0MjE4.uNmckJb4PMZWIvH7h-_a9RC-l3uaxWNk_nkWj9uvPvUg.w8zJ4CJGwFXq7VvR5eiIv-k3jsIDEoMeSXwzsFIIDzwg.JPEG/KakaoTalk_20250623_093308691_01.jpg?type=w773"
     ],
     "fitImages": [
       "%EA%B8%B0%ED%8C%90",
       "(9)",
       "%EC%A0%9C%EB%AA%A9%EC%9D%84_%EC%9E%85%EB%A0%A5%ED%95%98%EC%84%B8%EC%9A%94",
       "%EC%84%A4%EB%AA%85%EC%83%81%EC%84%B8%ED%91%9C%EC%8B%9C",
+      "%EC%A0%9C%EB%AA%A9_%EC%97%86%EC%9D%8C-1.png?type=w773",
       "KakaoTalk_20260329_173507463.jpg?type=w773"
     ],
     "specs": [
@@ -309,7 +327,7 @@
       },
       {
         "label": "기능",
-        "value": "자동 필름 컷팅 및 랩 클램프 기능"
+        "value": "자동 필름 컷팅,부착 및 랩 클램프 기능"
       },
       {
         "label": "필름 연신율",
@@ -348,7 +366,25 @@
       "턴테이블, 헤드, 필름연신 조절 기능",
       "슬로우 스타트/스톱 기능"
     ],
-    "detailedDescription": "리모콘 랩핑기는 무선 제어 기술을 도입하여 지게차 운전자가 차량에서 내리지 않고도 모든 과정을 제어할 수 있는 스마트 물류 장비입니다.\n\n지게차에서 내리고 타는 반복적인 동작을 없애주어 작업자의 피로도를 획기적으로 줄여주며, 포장 작업 시간을 단축시켜 전체적인 물류 흐름을 원활하게 합니다.\n\n**주요 특징**\n\n•원거리 무선 제어: 최대 50m 거리에서도 안정적인 조작이 가능하여 넓은 작업 현장에서도 효율적입니다.\n• 작업 효율 극대화: 지게차 승하차 시간을 절약하여 기존 대비 약 30% 이상의 작업 속도 향상을 기대할 수 있습니다.\n• 안전성 확보: 작업자가 기계와 일정 거리를 유지한 상태에서 조작하므로 안전 사고 예방에 효과적입니다.\n• 간편한 조작: 직관적인 리모콘 버튼 구성으로 누구나 쉽게 숙달할 수 있으며, 비상 정지 기능이 포함되어 있어 위급 상황 시 즉각적인 대처가 가능합니다.",
+    "mainFeatures": [
+      {
+        "title": "원거리 무선 제어",
+        "description": "최대 50m 거리에서도 안정적인 조작이 가능하여 넓은 작업 현장에서도 효율적입니다."
+      },
+      {
+        "title": "작업 효율 극대화",
+        "description": "지게차 승하차 시간을 절약하여 기존 대비 약 30% 이상의 작업 속도 향상을 기대할 수 있습니다."
+      },
+      {
+        "title": "안전성 확보",
+        "description": "작업자가 기계와 일정 거리를 유지한 상태에서 조작하므로 안전 사고 예방에 효과적입니다."
+      },
+      {
+        "title": "간편한 조작",
+        "description": "직관적인 리모콘 버튼 구성으로 누구나 쉽게 숙달할 수 있으며, 비상 정지 기능이 포함되어 있어 위급 상황 시 즉각적인 대처가 가능합니다."
+      }
+    ],
+    "detailedDescription": "리모콘 랩핑기는 무선 제어 기술을 도입하여 지게차 운전자가 차량에서 내리지 않고도 모든 과정을 제어할 수 있는 스마트 물류 장비입니다. \n\n지게차에서 내리고 타는 반복적인 동작을 없애주어 작업자의 피로도를 획기적으로 줄여주며, 포장 작업 시간을 단축시켜 전체적인 물류 흐름을 원활하게 합니다.",
     "advantages": [
       {
         "title": "효율성",
@@ -375,7 +411,8 @@
       "작업 효율성과 안전을 중시하는 스마트 공장"
     ],
     "caution": "클램프 기능 , 랩 컷팅 및 부착이 공압시스템으로 에어컴프레셔가 구비되어있어야합니다. (별도 구매)",
-    "order": 3
+    "videoUrl": "",
+    "videoUrls": []
   },
   {
     "id": "turntable",
@@ -386,7 +423,10 @@
     "videoUrl": "https://www.youtube.com/embed/g1UTNacg33M",
     "gallery": [
       "https://postfiles.pstatic.net/MjAyNjAzMjZfMjc0/MDAxNzc0NDk5MjE5OTIz.DAQ0EcfRFo_78NFv3ZlzYmOAklNaWA7OB7QtymvriLYg.YjwIbeeUnSSch6oIz-XBgK9ccDNevQ2MBHzx7XwQ220g.JPEG/KakaoTalk_20260110_152635219_02.jpg?type=w773",
-      "https://postfiles.pstatic.net/MjAyNjAzMjZfMjcg/MDAxNzc0NDk5MjE5OTMz.YTl3lBvhg9TrOeBs4fpQgA59K8b2a3-gBvR4nmdIi44g.1g9-L7JT0UVWTc4x8DlKwc878P1ZnPqoH5wls2kDWIwg.JPEG/KakaoTalk_20260110_152635219_03.jpg?type=w773"
+      "https://postfiles.pstatic.net/MjAyNjAzMjZfMjcg/MDAxNzc0NDk5MjE5OTMz.YTl3lBvhg9TrOeBs4fpQgA59K8b2a3-gBvR4nmdIi44g.1g9-L7JT0UVWTc4x8DlKwc878P1ZnPqoH5wls2kDWIwg.JPEG/KakaoTalk_20260110_152635219_03.jpg?type=w773",
+      "https://postfiles.pstatic.net/MjAyNjA0MDhfNjAg/MDAxNzc1NjE5NzAyOTIw.nu3X_-1c2M4DcaFXmHp_JonAewDIzSurkjahcjbjvjAg.07eeolz5uhKqacUTgoMli_AVc5DFFuQZW6nnDgh0m00g.JPEG/%EC%A0%9C%EB%AA%A9%EC%9D%84_%EC%9E%85%EB%A0%A5%ED%95%98%EC%84%B8%EC%9A%94_(16).jpg?type=w773",
+      "https://postfiles.pstatic.net/MjAyNjAzMjZfOTUg/MDAxNzc0NDk5MjE5OTIy.WJnXQEYLl9SWjWd3uz9BbJPfsqN-cnTNIX51n3vsK28g.p3dWcnkbZvJZr41WdoJTkanANdZcPbWFyj7jIUnuGgMg.JPEG/KakaoTalk_20260110_152635219_04.jpg?type=w773",
+      "https://postfiles.pstatic.net/MjAyNjAzMjZfMTIx/MDAxNzc0NDk5MTc2NzY0.OLfra6MtWLPxoEgQb5ei0yYOfIpzJU8a77L2f2E-xcwg.ZIvY5ikwCTW1RI--Fp3_w_GUXPFUtkPMlLR2byKNcm0g.JPEG/KakaoTalk_20260109_124646049_03.jpg?type=w773"
     ],
     "fitImages": [
       "%EA%B8%B0%ED%8C%90",
@@ -426,29 +466,33 @@
       "간단한 구조로 고장이 적고 유지보수가 매우 용이",
       "220V 단상 전원으로 어디서나 간편하게 연결 가능"
     ],
-    "detailedDescription": "원판 랩핑기는 기둥 없이 턴테이블만으로 구성된 랩핑 보조 장비입니다.",
-    "advantages": [
+    "mainFeatures": [
       {
-        "title": "가성비",
-        "description": "최소한의 투자로 수동 랩핑의 노동 강도를 크게 줄여줍니다."
+        "title": "컴팩트한 공간 효율",
+        "description": "기둥이 없는 구조로 협소한 공간이나 층고가 낮은 작업장에서도 자유롭게 설치 및 사용이 가능합니다."
       },
       {
-        "title": "공간 효율",
-        "description": "기둥이 없어 좁고 낮은 공간에서도 자유롭게 설치 및 사용이 가능합니다."
+        "title": "풋 스위치 및 가성비",
+        "description": "최소한의 투자로 수동 랩핑의 노동 강도를 크게 줄여주며, 발판 스위치로 양손 자유로운 작업이 가능합니다."
       },
       {
-        "title": "내구성",
-        "description": "단순한 구조로 고장이 적고 장기간 안정적인 사용이 보장됩니다."
+        "title": "강력한 내구성 및 안전",
+        "description": "단순한 구조로 고장이 적고 장기간 안정적인 사용이 보장되며, 인버터 제어로 부드러운 가감속을 지원합니다."
+      },
+      {
+        "title": "뛰어난 이동성",
+        "description": "지게차 포켓이 내장되어 있어 필요에 따라 현장 내 어디든 신속하게 이동 및 설치가 가능합니다."
       }
     ],
+    "detailedDescription": "원판 랩핑기는 기둥 없이 턴테이블만으로 구성된 랩핑 보조 장비입니다. 좁고 낮은 공간에서도 효율적으로 사용할 수 있으며, 지게차로 이동이 매우 자유롭습니다.\n\n인버터 제어를 통한 부드러운 회전과 풋 스위치를 이용한 간편한 조작으로, 작업자가 직접 돌 필요가 없어 수동 랩핑의 피로도를 \n획기적으로 줄여주는 경제적인 솔루션입니다.",
+    "advantages": [],
     "customizedInfo": {
       "description": "표준 사양 외에도 고객사의 작업 환경에 맞춘 특수 제작이 가능합니다.",
       "items": [
         "턴테이블 직경: 최대 3,000 파이(Φ)까지 제작 가능"
       ]
     },
-    "recommendedIndustries": [],
-    "order": 4
+    "recommendedIndustries": []
   },
   {
     "id": "weight-scale",
@@ -458,7 +502,9 @@
     "image": "https://postfiles.pstatic.net/MjAyNjAzMjRfNTAg/MDAxNzc0MzUzMDUzNDYy.Xpu0Xwi55qb1b3hLYkM4SUAyCCbOf9aVPXSVYUdGF0Ag.yFwJFY7ycz4XhteghoL2Pzd1qNMuLz9R-eqej6H0zdIg.JPEG/%EB%9E%A9%ED%95%91%EA%B8%B0_%EB%88%84%EB%81%BC_2.jpg?type=w773",
     "gallery": [
       "https://postfiles.pstatic.net/MjAyNjAzMjRfMjUz/MDAxNzc0MzUzMDU3MTcw.BWW8kAk3NO8vDXr54vrBqThYpozAl8m7GnEBZrcZKYMg.eTbqO0W1Gyzg6gx7Uv9Ti_Qfqld-mGXuplST4-WXJIUg.JPEG/%EC%A0%9C%EB%AA%A9%EC%9D%84_%EC%9E%85%EB%A0%A5%ED%95%98%EC%84%B8%EC%9A%94_(9).jpg?type=w773",
-      "https://postfiles.pstatic.net/MjAyNjAzMjRfMTYg/MDAxNzc0MzUzMDcwMzgy.LmrwT8fxZti1Ltp9OTOYLV2fumcdBB7aOGfKw50-w-gg.KXG5UiQCkb-ZDpfhD3vmi7N9rvuq78pSm_3GvyR9VUEg.JPEG/%EC%A0%95%EB%A9%B4.jpg?type=w773"
+      "https://postfiles.pstatic.net/MjAyNjAzMjRfMTYg/MDAxNzc0MzUzMDcwMzgy.LmrwT8fxZti1Ltp9OTOYLV2fumcdBB7aOGfKw50-w-gg.KXG5UiQCkb-ZDpfhD3vmi7N9rvuq78pSm_3GvyR9VUEg.JPEG/%EC%A0%95%EB%A9%B4.jpg?type=w773",
+      "https://postfiles.pstatic.net/MjAyNjAzMjRfMjkw/MDAxNzc0MzUzMDcwNDEw.gK0MWWacMBiraqAKFXW49x8xnpoQ0xtrLrPIkBzV9QEg.HTpHD3EQ6niFIMcyMWhLHEJ1jIJz02bX5DUU4q-6CPQg.JPEG/%EC%B8%A1%EB%A9%B4_2.jpg?type=w773",
+      "https://postfiles.pstatic.net/MjAyNjAzMjRfODYg/MDAxNzc0MzUzNDg5ODk0.C21u6jkxfz348UvyLvFS-Rw3bdOze1d8AlBiTlnv0dgg.FgI-yRnKE9ACDKwMiVEWv7hFZurtDGWLOR6EM4o2WgYg.JPEG/%EC%B8%A1%EB%A9%B4_3.jpg?type=w773"
     ],
     "fitImages": [
       "%EA%B8%B0%ED%8C%90",
@@ -498,16 +544,31 @@
       "견고한 로드셀 보호 구조 설계로 충격 및 과하중 방지",
       "지게차 이동이 용이한 구조"
     ],
-    "detailedDescription": "로드셀 랩핑기는 턴테이블 하단에 4개의 고정밀 로드셀(Load Cell)을 장착하여, 파렛트 랩핑 작업과 동시에 적재물의 무게를 실시간으로 측정할 수 있는 스마트 물류 솔루션입니다.",
-    "advantages": [
+    "mainFeatures": [
       {
-        "title": "공정 최적화",
-        "description": "포장과 계량 공정을 하나로 통합하여 불필요한 이동 시간을 제거하고 물류 흐름을 가속화합니다."
+        "title": "원스톱 공정 최적화",
+        "description": "랩핑과 계량 공정을 하나로 통합하여 불필요한 이동 시간을 제거하고 물류 흐름을 획기적으로 가속화합니다."
       },
       {
-        "title": "고정밀 계량",
-        "description": "4개의 독립된 로드셀이 하중을 균등하게 감지하여, 적재물이 한쪽으로 치우쳐도 정확한 중량을 산출합니다."
+        "title": "고정밀 로드셀 계량",
+        "description": "4개의 독립된 고정밀 센서가 하중을 균등하게 감지하여, 적재물이 치우쳐도 정확한 중량을 산출합니다."
+      },
+      {
+        "title": "스마트 데이터 관리",
+        "description": "디지털 인디케이터를 통해 중량을 실시간 확인하고 기록할 수 있어 재고 및 출하 관리에 매우 용이합니다."
+      },
+      {
+        "title": "내구성 및 안정성",
+        "description": "중량 측정 센서를 외부 충격으로부터 보호하는 특수 설계로 장기간 안정적인 정밀도를 유지합니다."
       }
+    ],
+    "detailedDescription": "로드셀 랩핑기는 턴테이블 하단에 4개의 고정밀 로드셀(Load Cell)을 장착하여, 파렛트 랩핑 작업과 동시에 적재물의 무게를 실시간으로 측정할 수 있는 스마트 물류 솔루션입니다.\n\n기존에는 포장 후 별도의 계근대로 이동하여 무게를 측정해야 했으나, 본 장비를 사용하면 이동 동선을 획기적으로 줄일 수 있어 작업 효율이 대폭 향상됩니다. 특히 정확한 중량 확인이 필요한 수출용 화물이나 원자재 관리 현장에서 필수적인 장비입니다.",
+    "advantages": [],
+    "recommendedIndustries": [
+      "정확한 중량 확인이 필요한 수출 물류 업체",
+      "원자재 입출고 관리가 엄격한 제조 공장",
+      "제품별 중량 데이터 기록이 필요한 식품 및 화학 산업",
+      "과적 방지 및 운송 비용 최적화가 필요한 유통 센터"
     ],
     "customizedInfo": {
       "description": "표준 사양 외에도 고객사의 작업 환경에 맞춘 특수 제작이 가능합니다.",
@@ -515,10 +576,6 @@
         "기둥 높이: 최대 3,200mm까지 제작 가능",
         "턴테이블 직경: 최대 3,000 파이(Φ)까지 제작 가능"
       ]
-    },
-    "recommendedIndustries": [
-      "정확한 중량 확인이 필요한 수출 물류 업체"
-    ],
-    "order": 5
+    }
   }
 ]

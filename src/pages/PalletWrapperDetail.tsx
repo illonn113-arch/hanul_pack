@@ -380,6 +380,23 @@ export default function PalletWrapperDetail() {
                 </div>
               )}
 
+              {/* Main Features */}
+              {wrapper.mainFeatures && wrapper.mainFeatures.length > 0 && (
+                <div>
+                  <h3 className="text-[22px] font-bold text-[#FF6321] mb-5">주요 특징</h3>
+                  <div className="space-y-4 text-gray-700 text-[17px]">
+                    {wrapper.mainFeatures.map((feature, idx) => (
+                      <div key={idx} className="flex flex-col sm:flex-row sm:gap-2">
+                        <span className="font-bold shrink-0">{feature.title}:</span>
+                        <div className="markdown-body advantage-description">
+                          <ReactMarkdown>{feature.description}</ReactMarkdown>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
               {/* Advantages */}
               {wrapper.advantages && wrapper.advantages.length > 0 && (
                 <div>

@@ -72,72 +72,28 @@
       },
       "required": ["name", "email", "phone", "message", "createdAt"]
     },
-    "PalletWrapper": {
-      "title": "Pallet Wrapper",
-      "description": "A pallet wrapping machine product.",
-      "type": "object",
-      "properties": {
-        "id": { "type": "string" },
-        "title": { "type": "string" },
-        "subtitle": { "type": "string" },
-        "description": { "type": "string" },
-        "image": { "type": "string" },
-        "videoUrl": { "type": "string" },
-        "videoUrls": { "type": "array", "items": { "type": "string" } },
-        "gallery": { "type": "array", "items": { "type": "string" } },
-        "fitImages": { "type": "array", "items": { "type": "string" } },
-        "specs": { 
-          "type": "array", 
-          "items": { 
-            "type": "object",
-            "properties": {
-              "label": { "type": "string" },
-              "value": { "type": "string" }
-            }
-          }
-        },
-        "performance": { "type": "array", "items": { "type": "string" } },
-        "detailedDescription": { "type": "string" },
-        "advantages": { 
-          "type": "array", 
-          "items": { 
-            "type": "object",
-            "properties": {
-              "title": { "type": "string" },
-              "description": { "type": "string" }
-            }
-          }
-        },
-        "recommendedIndustries": { "type": "array", "items": { "type": "string" } },
-        "order": { "type": "number" }
-      },
-      "required": ["title", "subtitle", "description", "image"]
-    },
-    "OptionItem": {
+    "Option": {
       "title": "Additional Option",
       "description": "An additional option for the wrapping machines.",
       "type": "object",
       "properties": {
-        "id": { "type": "string" },
         "title": { "type": "string" },
         "description": { "type": "string" },
         "icon": { "type": "string" },
         "image": { "type": "string" },
-        "gallery": { "type": "array", "items": { "type": "string" } },
-        "details": { "type": "array", "items": { "type": "string" } },
-        "advantages": { 
-          "type": "array", 
-          "items": { 
-            "type": "object",
-            "properties": {
-              "title": { "type": "string" },
-              "description": { "type": "string" }
-            }
-          }
-        },
         "order": { "type": "number" }
       },
-      "required": ["title", "description", "image"]
+      "required": ["title", "description", "image", "order"]
+    },
+    "VisitorStats": {
+      "title": "Visitor Statistics",
+      "description": "Daily visitor count.",
+      "type": "object",
+      "properties": {
+        "count": { "type": "number" },
+        "date": { "type": "string" }
+      },
+      "required": ["count", "date"]
     }
   },
   "firestore": {
@@ -157,13 +113,13 @@
       "schema": "Inquiry",
       "description": "A collection of contact form submissions."
     },
-    "/wrappers/{wrapperId}": {
-      "schema": "PalletWrapper",
-      "description": "A collection of pallet wrapping machines."
-    },
     "/options/{optionId}": {
-      "schema": "OptionItem",
+      "schema": "Option",
       "description": "A collection of additional options."
+    },
+    "/stats/{date}": {
+      "schema": "VisitorStats",
+      "description": "Daily visitor statistics."
     }
   }
 }

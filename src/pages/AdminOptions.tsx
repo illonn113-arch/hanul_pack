@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import AdminSidebar from '../components/AdminSidebar';
-import { fetchOptions, saveOptions, deleteOption, getIcon, type OptionItem } from '../data/options';
+import { fetchOptions, saveOptions, getIcon, type OptionItem } from '../data/options';
 import { Plus, Trash2, Save, Image as ImageIcon, Type, FileText, CheckCircle2, AlertCircle, Upload } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -52,18 +52,9 @@ export default function AdminOptions() {
     setOptions([...options, newOption]);
   };
 
-  const removeOption = async (id: string) => {
+  const removeOption = (id: string) => {
     if (confirm('정말 이 옵션을 삭제하시겠습니까?')) {
-      try {
-        await deleteOption(id);
-        const updatedOptions = options.filter(o => o.id !== id);
-        setOptions(updatedOptions);
-        // Also save the remaining list to ensure order is updated
-        await saveOptions(updatedOptions);
-      } catch (err) {
-        console.error(err);
-        alert('삭제 중 오류가 발생했습니다.');
-      }
+      setOptions(options.filter(o => o.id !== id));
     }
   };
 

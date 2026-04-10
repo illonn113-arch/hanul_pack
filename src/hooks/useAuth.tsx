@@ -25,13 +25,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       if (user) {
         const path = `users/${user.uid}`;
         try {
-          console.log('User detected, checking permissions for:', user.email);
           // Check if user exists in Firestore, if not create
           const userRef = doc(db, 'users', user.uid);
           const userSnap = await getDoc(userRef);
           
           if (!userSnap.exists()) {
-            console.log('New user, creating record...');
             // Default role is user, unless it's the default admin email
             const role = user.email === "illonn113@gmail.com" ? "admin" : "user";
             await setDoc(userRef, {
@@ -40,15 +38,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
             });
             setIsAdmin(role === "admin");
           } else {
-            const userData = userSnap.data();
-            console.log('Existing user data:', userData);
-            setIsAdmin(userData.role === "admin");
+            setIsAdmin(userSnap.data().role === "admin");
           }
         } catch (error) {
-          console.error('Error checking user role:', error);
-          // Don't use handleFirestoreError here as it throws, which might break the observer
-          // Just log it and set admin to false
-          setIsAdmin(false);
+          handleFirestoreError(error, OperationType.WRITE, path);
         }
       } else {
         setIsAdmin(false);
@@ -61,14 +54,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const login = async () => {
     const provider = new GoogleAuthProvider();
-    try {
-      console.log('Starting login process...');
-      const result = await signInWithPopup(auth, provider);
-      console.log('Login successful:', result.user.email);
-    } catch (error) {
-      console.error('Login failed:', error);
-      alert('로그인 중 오류가 발생했습니다: ' + (error instanceof Error ? error.message : String(error)));
-    }
+    await signInWithPopup(auth, provider);
   };
 
   const logout = async () => {

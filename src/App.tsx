@@ -1,5 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Navigate, Outlet } from 'react-router-dom';
+import { useEffect } from 'react';
 import { AuthProvider, useAuth } from './hooks/useAuth';
+import { useVisitors } from './hooks/useVisitors';
 import Home from './pages/Home';
 import CompanyIntro from './pages/CompanyIntro';
 import PalletWrappers from './pages/PalletWrappers';
@@ -21,6 +23,14 @@ import Login from './pages/Login';
 import ClientLayout from './components/ClientLayout';
 import ScrollToTop from './components/ScrollToTop';
 
+function VisitTracker() {
+  const { trackVisit } = useVisitors();
+  useEffect(() => {
+    trackVisit();
+  }, []);
+  return null;
+}
+
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const { user, isAdmin, loading } = useAuth();
 
@@ -33,6 +43,7 @@ function ProtectedRoute({ children }: { children: React.ReactNode }) {
 function App() {
   return (
     <AuthProvider>
+      <VisitTracker />
       <Router>
         <ScrollToTop />
         <div className="min-h-screen bg-white text-gray-900 selection:bg-[#FF6321]/10">

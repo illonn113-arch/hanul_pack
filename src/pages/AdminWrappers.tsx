@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Plus, Edit2, Trash2, Save, X, Image as ImageIcon, CheckCircle, AlertCircle, ChevronRight, Maximize2, ChevronUp, ChevronDown, ChevronLeft, Upload } from 'lucide-react';
 import AdminSidebar from '../components/AdminSidebar';
-import { fetchPalletWrappers, savePalletWrappers, deletePalletWrapper, type PalletWrapper } from '../data/palletWrappers';
+import { fetchPalletWrappers, savePalletWrappers, type PalletWrapper } from '../data/palletWrappers';
 import { getYoutubeEmbedUrl } from '../lib/utils';
 
 export default function AdminWrappers() {
@@ -63,7 +63,6 @@ export default function AdminWrappers() {
     if (!confirm('정말 삭제하시겠습니까?')) return;
 
     try {
-      await deletePalletWrapper(id);
       const updatedWrappers = wrappers.filter(w => w.id !== id);
       await savePalletWrappers(updatedWrappers);
       setWrappers(updatedWrappers);
@@ -144,8 +143,10 @@ export default function AdminWrappers() {
         fitImages: wrapper.fitImages || [],
         specs: wrapper.specs || [],
         performance: wrapper.performance || [],
+        mainFeatures: wrapper.mainFeatures || [],
         advantages: wrapper.advantages || [],
         recommendedIndustries: wrapper.recommendedIndustries || [],
+        caution: wrapper.caution || '',
       });
     } else {
       setEditingWrapper({
@@ -160,8 +161,10 @@ export default function AdminWrappers() {
         fitImages: [],
         specs: [],
         performance: [],
+        mainFeatures: [],
         advantages: [],
         recommendedIndustries: [],
+        caution: '',
       });
     }
     setIsModalOpen(true);
@@ -668,6 +671,59 @@ export default function AdminWrappers() {
 
                   <div className="space-y-4">
                     <div className="flex justify-between items-center">
+                      <label className="block text-xs font-bold tracking-widest text-gray-500 uppercase">상세 주요 특징 (Main Features)</label>
+                      <button
+                        type="button"
+                        onClick={() => setEditingWrapper({ ...editingWrapper, mainFeatures: [...(editingWrapper.mainFeatures || []), { title: '', description: '' }] })}
+                        className="text-xs font-bold text-[#FF6321] hover:underline"
+                      >
+                        특징 추가
+                      </button>
+                    </div>
+                    <div className="grid grid-cols-1 gap-4">
+                      {editingWrapper.mainFeatures?.map((feature, idx) => (
+                        <div key={idx} className="p-4 bg-white/5 border border-white/10 rounded-2xl space-y-3">
+                          <div className="flex justify-between items-center">
+                            <input
+                              type="text"
+                              placeholder="특징 제목 (예: 원거리 무선 제어)"
+                              className="bg-transparent border-none focus:outline-none text-white font-bold w-full"
+                              value={feature.title}
+                              onChange={e => {
+                                const newFeatures = [...(editingWrapper.mainFeatures || [])];
+                                newFeatures[idx] = { ...feature, title: e.target.value };
+                                setEditingWrapper({ ...editingWrapper, mainFeatures: newFeatures });
+                              }}
+                            />
+                            <button
+                              type="button"
+                              onClick={() => {
+                                const newFeatures = [...(editingWrapper.mainFeatures || [])];
+                                newFeatures.splice(idx, 1);
+                                setEditingWrapper({ ...editingWrapper, mainFeatures: newFeatures });
+                              }}
+                              className="p-1 text-gray-500 hover:text-red-500"
+                            >
+                              <Trash2 size={16} />
+                            </button>
+                          </div>
+                          <textarea
+                            placeholder="특징 설명"
+                            className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2 focus:outline-none focus:border-[#FF6321] transition-all text-sm h-20 resize-none"
+                            value={feature.description}
+                            onChange={e => {
+                              const newFeatures = [...(editingWrapper.mainFeatures || [])];
+                              newFeatures[idx] = { ...feature, description: e.target.value };
+                              setEditingWrapper({ ...editingWrapper, mainFeatures: newFeatures });
+                            }}
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="space-y-4">
+                    <div className="flex justify-between items-center">
                       <label className="block text-xs font-bold tracking-widest text-gray-500 uppercase">주요 장점 (Advantages)</label>
                       <button
                         type="button"
@@ -770,10 +826,22 @@ export default function AdminWrappers() {
                       ))}
                     </div>
                   </div>
-                  <div className="space-y-4">
-                    <div className="flex justify-between items-center">
-                      <label className="block text-xs font-bold tracking-widest text-gray-500 uppercase">주문제작 정보 (Customized Info)</label>
+                    <div className="space-y-4">
+                      <div className="flex justify-between items-center">
+                        <label className="block text-xs font-bold tracking-widest text-gray-500 uppercase">주의 사항 (Caution)</label>
+                      </div>
+                      <textarea
+                        placeholder="주의 사항 내용을 입력하세요"
+                        className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-[#FF6321] transition-all h-32 resize-none"
+                        value={editingWrapper.caution || ''}
+                        onChange={e => setEditingWrapper({ ...editingWrapper, caution: e.target.value })}
+                      />
                     </div>
+
+                    <div className="space-y-4">
+                      <div className="flex justify-between items-center">
+                        <label className="block text-xs font-bold tracking-widest text-gray-500 uppercase">주문제작 정보 (Customized Info)</label>
+                      </div>
                     <div className="p-4 bg-white/5 border border-white/10 rounded-2xl space-y-4">
                       <textarea
                         placeholder="주문제작 설명"

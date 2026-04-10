@@ -2,37 +2,22 @@ import AdminSidebar from '../components/AdminSidebar';
 import { usePosts } from '../hooks/usePosts';
 import { useInquiries } from '../hooks/useInquiries';
 import { useSiteConfig } from '../hooks/useSiteConfig';
-import { FileText, Eye, MessageSquare, TrendingUp, Database, RefreshCw } from 'lucide-react';
+import { useVisitors } from '../hooks/useVisitors';
+import { FileText, Eye, MessageSquare, TrendingUp, Database, RefreshCcw } from 'lucide-react';
 import { motion } from 'motion/react';
-import { fetchPalletWrappers, savePalletWrappers, DEFAULT_WRAPPERS } from '../data/palletWrappers';
-import { fetchOptions, saveOptions, DEFAULT_OPTIONS } from '../data/options';
-import { useState } from 'react';
 
 export default function Admin() {
   const { posts, addPost } = usePosts();
   const { inquiries } = useInquiries();
   const { config } = useSiteConfig();
-  const [isSyncing, setIsSyncing] = useState(false);
+  const { todayCount, totalCount, resetVisitors } = useVisitors();
 
   const newInquiriesCount = inquiries.filter(i => i.status === 'new').length;
 
-  const syncToCloud = async () => {
-    if (!confirm('기본 데이터를 클라우드(Firestore)로 복구하시겠습니까? 이 작업은 사라진 사진들을 복구하고 배포된 사이트에서 데이터가 보이게 하는 데 필수적입니다.')) return;
-    
-    setIsSyncing(true);
-    try {
-      // 1. Sync Pallet Wrappers using DEFAULT_WRAPPERS to ensure photos are restored
-      await savePalletWrappers(DEFAULT_WRAPPERS);
-
-      // 2. Sync Options using DEFAULT_OPTIONS
-      await saveOptions(DEFAULT_OPTIONS);
-
-      alert('데이터 복구가 완료되었습니다. 이제 배포된 사이트에서도 사진들이 정상적으로 표시됩니다.');
-    } catch (err) {
-      console.error(err);
-      alert('복구 중 오류가 발생했습니다. 네트워크 상태를 확인해 주세요.');
-    } finally {
-      setIsSyncing(false);
+  const handleResetVisitors = async () => {
+    if (window.confirm('방문자 수를 초기화하시겠습니까?')) {
+      await resetVisitors();
+      alert('방문자 수가 초기화되었습니다.');
     }
   };
 
@@ -77,9 +62,9 @@ export default function Admin() {
 
   const stats = [
     { label: '전체 게시글', value: posts.length, icon: <FileText size={24} />, color: 'text-blue-500' },
-    { label: '오늘 방문자', value: '1,234', icon: <Eye size={24} />, color: 'text-[#FF6321]' },
+    { label: '오늘 방문자', value: todayCount.toLocaleString(), icon: <Eye size={24} />, color: 'text-[#FF6321]' },
     { label: '새로운 문의', value: newInquiriesCount, icon: <MessageSquare size={24} />, color: 'text-green-500' },
-    { label: '성장률', value: '+12%', icon: <TrendingUp size={24} />, color: 'text-orange-500' },
+    { label: '총 방문자 수', value: totalCount.toLocaleString(), icon: <TrendingUp size={24} />, color: 'text-orange-500' },
   ];
 
   return (
@@ -93,12 +78,11 @@ export default function Admin() {
           </div>
           <div className="flex gap-4">
             <button
-              onClick={syncToCloud}
-              disabled={isSyncing}
-              className={`px-6 py-3 ${isSyncing ? 'bg-gray-500' : 'bg-blue-600 hover:bg-blue-700'} text-white font-bold rounded-xl flex items-center gap-2 transition-all shadow-lg shadow-blue-900/20`}
+              onClick={handleResetVisitors}
+              className="px-6 py-3 bg-white/5 hover:bg-white/10 text-white font-bold rounded-xl flex items-center gap-2 transition-all border border-white/10"
             >
-              <RefreshCw size={20} className={isSyncing ? 'animate-spin' : ''} />
-              {isSyncing ? '동기화 중...' : '클라우드 데이터 동기화'}
+              <RefreshCcw size={20} />
+              방문자 초기화
             </button>
             <button
               onClick={seedData}
