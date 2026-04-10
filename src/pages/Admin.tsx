@@ -4,8 +4,8 @@ import { useInquiries } from '../hooks/useInquiries';
 import { useSiteConfig } from '../hooks/useSiteConfig';
 import { FileText, Eye, MessageSquare, TrendingUp, Database, RefreshCw } from 'lucide-react';
 import { motion } from 'motion/react';
-import { fetchPalletWrappers, savePalletWrappers } from '../data/palletWrappers';
-import { fetchOptions, saveOptions } from '../data/options';
+import { fetchPalletWrappers, savePalletWrappers, DEFAULT_WRAPPERS } from '../data/palletWrappers';
+import { fetchOptions, saveOptions, DEFAULT_OPTIONS } from '../data/options';
 import { useState } from 'react';
 
 export default function Admin() {
@@ -17,26 +17,20 @@ export default function Admin() {
   const newInquiriesCount = inquiries.filter(i => i.status === 'new').length;
 
   const syncToCloud = async () => {
-    if (!confirm('로컬 데이터를 클라우드(Firestore)로 동기화하시겠습니까? 이 작업은 배포된 사이트에서 데이터가 보이게 하는 데 필수적입니다.')) return;
+    if (!confirm('기본 데이터를 클라우드(Firestore)로 복구하시겠습니까? 이 작업은 사라진 사진들을 복구하고 배포된 사이트에서 데이터가 보이게 하는 데 필수적입니다.')) return;
     
     setIsSyncing(true);
     try {
-      // 1. Sync Pallet Wrappers
-      const wrappers = await fetch("/api/wrappers").then(res => res.json()).catch(() => []);
-      if (wrappers.length > 0) {
-        await savePalletWrappers(wrappers);
-      }
+      // 1. Sync Pallet Wrappers using DEFAULT_WRAPPERS to ensure photos are restored
+      await savePalletWrappers(DEFAULT_WRAPPERS);
 
-      // 2. Sync Options
-      const options = await fetch("/api/options").then(res => res.json()).catch(() => []);
-      if (options.length > 0) {
-        await saveOptions(options);
-      }
+      // 2. Sync Options using DEFAULT_OPTIONS
+      await saveOptions(DEFAULT_OPTIONS);
 
-      alert('데이터 동기화가 완료되었습니다. 이제 배포된 사이트에서도 데이터가 정상적으로 표시됩니다.');
+      alert('데이터 복구가 완료되었습니다. 이제 배포된 사이트에서도 사진들이 정상적으로 표시됩니다.');
     } catch (err) {
       console.error(err);
-      alert('동기화 중 오류가 발생했습니다. 서버가 실행 중인지 확인해 주세요.');
+      alert('복구 중 오류가 발생했습니다. 네트워크 상태를 확인해 주세요.');
     } finally {
       setIsSyncing(false);
     }
