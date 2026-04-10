@@ -56,6 +56,9 @@ export default function Footer() {
             <p className="pt-4 font-medium text-gray-400">
               COPYRIGHT(C) HANUL PACK. All Rights Reserved.
             </p>
+            <div className="pt-4">
+              <a href="/admin" className="text-[10px] text-gray-300 hover:text-gray-500 transition-colors">관리자</a>
+            </div>
           </div>
         </div>
 
