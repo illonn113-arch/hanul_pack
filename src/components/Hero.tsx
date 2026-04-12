@@ -16,8 +16,8 @@ export default function Hero() {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <motion.img
-          src="https://postfiles.pstatic.net/MjAyNjA0MTBfMTUx/MDAxNzc1NzgzNjMyNDUw.vc0KmroPGKCrQAaa4wcfy4aOQlbvIcW0QX5C_gQ0KIcg.6G9mo8pW08bfD_2DWlEX0525IxlTliGL_xEdSNOR8gkg.JPEG/PANORAMA_20260329_151807.jpg?type=w773"
-          alt="Factory Panorama"
+          src="https://postfiles.pstatic.net/MjAyNjA0MTJfMjQ1/MDAxNzc1OTg5NDE5MTQ4.HboAGgFNrUl1fwV1XUAFT_7XbugGxcQModY3ZjsCHgQg.ESCOzPvKfsG1fqD1B7aUJxMc3-aArstk4Oi-_WOCgecg.JPEG/PANORAMA_20260329_151807.jpg?type=w773"
+          alt="Hero Background"
           animate={{
             objectPosition: ['0% 50%', '100% 50%', '0% 50%']
           }}
