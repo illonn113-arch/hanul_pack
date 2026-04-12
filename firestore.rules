@@ -116,8 +116,9 @@ service cloud.firestore {
     }
 
     function isValidPalletWrapper(data) {
-      return data.keys().hasAll(['id', 'title', 'subtitle', 'description', 'image', 'specs', 'performance']) &&
+      return data.keys().hasAll(['id', 'order', 'title', 'subtitle', 'description', 'image', 'specs', 'performance']) &&
              data.id is string &&
+             data.order is number &&
              data.title is string && data.title.size() > 0 &&
              data.subtitle is string &&
              data.description is string &&

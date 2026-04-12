@@ -79,11 +79,18 @@ export default function AdminWrappers() {
     
     if (targetIndex < 0 || targetIndex >= newWrappers.length) return;
     
+    // Swap items
     [newWrappers[index], newWrappers[targetIndex]] = [newWrappers[targetIndex], newWrappers[index]];
     
+    // Update order fields based on new positions
+    const orderedWrappers = newWrappers.map((w, i) => ({
+      ...w,
+      order: i + 1
+    }));
+    
     try {
-      await savePalletWrappers(newWrappers);
-      setWrappers(newWrappers);
+      await savePalletWrappers(orderedWrappers);
+      setWrappers(orderedWrappers);
     } catch (err) {
       console.error(err);
       alert('순서 변경 중 오류가 발생했습니다.');
@@ -137,6 +144,7 @@ export default function AdminWrappers() {
     if (wrapper) {
       setEditingWrapper({ 
         ...wrapper,
+        order: wrapper.order || (wrappers.indexOf(wrapper) + 1),
         gallery: wrapper.gallery || [],
         videoUrl: wrapper.videoUrl || '',
         videoUrls: wrapper.videoUrls || (wrapper.videoUrl ? [wrapper.videoUrl] : []),
@@ -151,6 +159,7 @@ export default function AdminWrappers() {
     } else {
       setEditingWrapper({
         id: `wrapper-${Date.now()}`,
+        order: wrappers.length + 1,
         title: '',
         subtitle: '',
         description: '',

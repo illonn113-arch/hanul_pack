@@ -1,9 +1,10 @@
-import { collection, getDocs, doc, setDoc, writeBatch } from 'firebase/firestore';
+import { collection, getDocs, doc, setDoc, writeBatch, query, orderBy } from 'firebase/firestore';
 import { db } from '../firebase';
 import { handleFirestoreError, OperationType } from '../lib/firestore-errors';
 
 export interface PalletWrapper {
   id: string;
+  order: number;
   title: string;
   subtitle: string;
   description: string;
@@ -25,6 +26,7 @@ export interface PalletWrapper {
 export const FALLBACK_WRAPPERS: PalletWrapper[] = [
   {
     "id": "standard",
+    "order": 1,
     "title": "기본형 랩핑기",
     "subtitle": "Standard Model",
     "description": "가장 보편적으로 사용되는 경제적이고 효율적인 파렛트 랩핑기로 견고한 내구성과 간편한 조작이 특징인 제품입니다.",
@@ -82,6 +84,7 @@ export const FALLBACK_WRAPPERS: PalletWrapper[] = [
   },
   {
     "id": "power",
+    "order": 2,
     "title": "파워형 랩핑기",
     "subtitle": "Power Pre-Stretch",
     "description": "필름 연신 장치(Pre-stretch)가 장착되어 필름 소모량을 획기적으로 줄여주는 고효율 모델입니다.",
@@ -144,6 +147,7 @@ export const FALLBACK_WRAPPERS: PalletWrapper[] = [
   },
   {
     "id": "top-press",
+    "order": 3,
     "title": "탑프레스 랩핑기",
     "subtitle": "Top Press",
     "description": "가벼운 제품이나 흔들리기 쉬운 적재물을 상단에서 눌러주어 안정적으로 랩핑할 수 있는 모델입니다.",
@@ -210,6 +214,7 @@ export const FALLBACK_WRAPPERS: PalletWrapper[] = [
   },
   {
     "id": "remote",
+    "order": 4,
     "title": "리모콘 랩핑기",
     "subtitle": "Remote Control",
     "description": "지게차 운전자가 내리지 않고 리모콘으로 조작할 수 있어 작업 효율을 극대화한 모델입니다.",
@@ -287,6 +292,7 @@ export const FALLBACK_WRAPPERS: PalletWrapper[] = [
   },
   {
     "id": "turntable",
+    "order": 5,
     "title": "원판 랩핑기",
     "subtitle": "Turntable Only",
     "description": "기본적인 턴테이블 회전 기능을 제공하는 가장 심플한 형태의 랩핑 보조 장비입니다.",
@@ -340,6 +346,7 @@ export const FALLBACK_WRAPPERS: PalletWrapper[] = [
   },
   {
     "id": "weight-scale",
+    "order": 6,
     "title": "로드셀 랩핑기",
     "subtitle": "Weight Scale",
     "description": "랩핑과 동시에 파렛트의 무게를 측정할 수 있는 로드셀이 내장된 스마트 모델입니다.",
@@ -399,7 +406,8 @@ export const FALLBACK_WRAPPERS: PalletWrapper[] = [
 
 export const fetchPalletWrappers = async (): Promise<PalletWrapper[]> => {
   try {
-    const querySnapshot = await getDocs(collection(db, 'palletWrappers'));
+    const wrappersQuery = query(collection(db, 'palletWrappers'), orderBy('order', 'asc'));
+    const querySnapshot = await getDocs(wrappersQuery);
     const wrappers = querySnapshot.docs.map(doc => doc.data() as PalletWrapper);
     
     if (wrappers.length === 0) {

@@ -53,6 +53,7 @@
       "type": "object",
       "properties": {
         "id": { "type": "string" },
+        "order": { "type": "number" },
         "title": { "type": "string" },
         "subtitle": { "type": "string" },
         "description": { "type": "string" },
@@ -60,7 +61,7 @@
         "specs": { "type": "array" },
         "performance": { "type": "array" }
       },
-      "required": ["id", "title", "subtitle", "description", "image", "specs", "performance"]
+      "required": ["id", "order", "title", "subtitle", "description", "image", "specs", "performance"]
     },
     "User": {
       "title": "User",
