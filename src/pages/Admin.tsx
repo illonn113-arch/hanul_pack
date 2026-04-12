@@ -21,6 +21,23 @@ export default function Admin() {
     }
   };
 
+  const syncCloudData = async () => {
+    if (window.confirm('기본 데이터를 클라우드(Firestore)와 동기화하시겠습니까? 기존 데이터가 덮어씌워질 수 있습니다.')) {
+      try {
+        const { FALLBACK_WRAPPERS, savePalletWrappers } = await import('../data/palletWrappers');
+        const { FALLBACK_OPTIONS, saveOptions } = await import('../data/options');
+        
+        await savePalletWrappers(FALLBACK_WRAPPERS);
+        await saveOptions(FALLBACK_OPTIONS);
+        
+        alert('클라우드 데이터 동기화가 완료되었습니다.');
+      } catch (error) {
+        console.error('Sync error:', error);
+        alert('동기화 중 오류가 발생했습니다.');
+      }
+    }
+  };
+
   const seedData = async () => {
     if (posts.length > 0) {
       alert('이미 게시글이 존재합니다.');
@@ -37,8 +54,8 @@ export default function Admin() {
         updatedAt: Date.now(),
       },
       {
-        title: "자동 테이핑기 라인 구축",
-        content: "생산 라인 효율화를 위한 자동 테이핑기 시스템을 구축했습니다.",
+        title: "반자동 테이핑기 라인 구축",
+        content: "생산 라인 효율화를 위한 반자동 테이핑기 시스템을 구축했습니다.",
         category: "taping-machine" as const,
         imageUrl: "https://picsum.photos/seed/taping/800/600",
         createdAt: Date.now() - 86400000,
@@ -54,10 +71,22 @@ export default function Admin() {
       }
     ];
 
-    for (const post of samplePosts) {
-      await addPost(post);
+    try {
+      for (const post of samplePosts) {
+        await addPost(post);
+      }
+      
+      // Also sync wrappers and options as part of seeding if needed
+      const { FALLBACK_WRAPPERS, savePalletWrappers } = await import('../data/palletWrappers');
+      const { FALLBACK_OPTIONS, saveOptions } = await import('../data/options');
+      await savePalletWrappers(FALLBACK_WRAPPERS);
+      await saveOptions(FALLBACK_OPTIONS);
+
+      alert('샘플 데이터 및 기계 라인업이 성공적으로 생성되었습니다.');
+    } catch (error) {
+      console.error('Seed error:', error);
+      alert('데이터 생성 중 오류가 발생했습니다.');
     }
-    alert('샘플 데이터가 성공적으로 생성되었습니다.');
   };
 
   const stats = [
@@ -76,13 +105,20 @@ export default function Admin() {
             <h1 className="text-4xl font-black tracking-tighter mb-2">대시보드</h1>
             <p className="text-gray-500">한울팩의 현재 상태를 한눈에 확인하세요.</p>
           </div>
-          <div className="flex gap-4">
+          <div className="flex flex-wrap gap-4">
             <button
               onClick={handleResetVisitors}
               className="px-6 py-3 bg-white/5 hover:bg-white/10 text-white font-bold rounded-xl flex items-center gap-2 transition-all border border-white/10"
             >
               <RefreshCcw size={20} />
               방문자 초기화
+            </button>
+            <button
+              onClick={syncCloudData}
+              className="px-6 py-3 bg-[#FF6321]/20 hover:bg-[#FF6321]/30 text-[#FF6321] font-bold rounded-xl flex items-center gap-2 transition-all border border-[#FF6321]/30"
+            >
+              <RefreshCcw size={20} />
+              클라우드 데이터 동기화
             </button>
             <button
               onClick={seedData}

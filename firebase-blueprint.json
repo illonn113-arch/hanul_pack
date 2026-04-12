@@ -40,12 +40,27 @@
       "properties": {
         "title": { "type": "string" },
         "content": { "type": "string" },
-        "category": { "type": "string", "enum": ["logo", "website", "other"] },
+        "category": { "type": "string", "enum": ["pallet-wrapper", "taping-machine", "packaging-materials", "portfolio", "other"] },
         "imageUrl": { "type": "string" },
         "createdAt": { "type": "number" },
         "updatedAt": { "type": "number" }
       },
       "required": ["title", "content", "category", "createdAt"]
+    },
+    "PalletWrapper": {
+      "title": "Pallet Wrapper",
+      "description": "A pallet wrapping machine model.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "subtitle": { "type": "string" },
+        "description": { "type": "string" },
+        "image": { "type": "string" },
+        "specs": { "type": "array" },
+        "performance": { "type": "array" }
+      },
+      "required": ["id", "title", "subtitle", "description", "image", "specs", "performance"]
     },
     "User": {
       "title": "User",
@@ -77,13 +92,15 @@
       "description": "An additional option for the wrapping machines.",
       "type": "object",
       "properties": {
+        "id": { "type": "string" },
         "title": { "type": "string" },
         "description": { "type": "string" },
         "icon": { "type": "string" },
         "image": { "type": "string" },
-        "order": { "type": "number" }
+        "details": { "type": "array" },
+        "advantages": { "type": "array" }
       },
-      "required": ["title", "description", "image", "order"]
+      "required": ["id", "title", "description", "icon", "image", "details", "advantages"]
     },
     "VisitorStats": {
       "title": "Visitor Statistics",
@@ -104,6 +121,10 @@
     "/posts/{postId}": {
       "schema": "Post",
       "description": "A collection of posts."
+    },
+    "/palletWrappers/{wrapperId}": {
+      "schema": "PalletWrapper",
+      "description": "A collection of pallet wrapping machine models."
     },
     "/users/{userId}": {
       "schema": "User",

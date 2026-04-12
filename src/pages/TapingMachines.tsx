@@ -5,13 +5,13 @@ import { Link } from 'react-router-dom';
 export default function TapingMachines() {
   const features = [
     {
-      title: '고속 자동 테이핑',
-      description: '분당 최대 20박스 이상의 빠른 처리 속도',
+      title: '정밀한 테이핑',
+      description: '안정적인 테이프 부착으로 완벽한 포장 품질 보장',
       icon: <Package size={24} />
     },
     {
-      title: '정밀한 테이프 부착',
-      description: '주름 없는 완벽한 테이핑 품질 보장',
+      title: '간편한 조작',
+      description: '누구나 쉽게 사용할 수 있는 직관적인 조작 방식',
       icon: <Settings size={24} />
     },
     {
@@ -27,12 +27,6 @@ export default function TapingMachines() {
       name: '표준형 반자동 테이핑기',
       description: '중소형 물류 현장에 최적화된 경제적인 모델',
       image: 'https://picsum.photos/seed/taping1/800/600'
-    },
-    {
-      id: 'tm-02',
-      name: '고속 자동 테이핑기',
-      description: '대량 생산 라인을 위한 완전 자동화 솔루션',
-      image: 'https://picsum.photos/seed/taping2/800/600'
     }
   ];
 
@@ -107,7 +101,7 @@ export default function TapingMachines() {
             <p className="text-gray-500">현장 용도에 맞는 다양한 모델을 확인해보세요</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 gap-12 max-w-2xl mx-auto">
             {products.map((product, index) => (
               <motion.div
                 key={product.id}

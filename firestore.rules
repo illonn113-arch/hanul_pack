@@ -23,10 +23,31 @@ service cloud.firestore {
     // Fields:
     //   - title: string (required)
     //   - content: string (required)
-    //   - category: string (required, enum: ['logo', 'website', 'other'])
+    //   - category: string (required, enum: ['pallet-wrapper', 'taping-machine', 'packaging-materials', 'portfolio', 'other'])
     //   - imageUrl: string
     //   - createdAt: number (required)
     //   - updatedAt: number
+    //
+    // Collection: palletWrappers
+    // Document ID: string (manual id)
+    // Fields:
+    //   - id: string (required)
+    //   - title: string (required)
+    //   - subtitle: string (required)
+    //   - description: string (required)
+    //   - image: string (required)
+    //   - specs: list (required)
+    //   - performance: list (required)
+    //   - mainFeatures: list
+    //   - detailedDescription: string
+    //   - advantages: list
+    //   - recommendedIndustries: list
+    //   - videoUrl: string
+    //   - videoUrls: list
+    //   - gallery: list
+    //   - fitImages: list
+    //   - caution: string
+    //   - customizedInfo: map
     //
     // Collection: users
     // Document ID: auth.uid
@@ -44,6 +65,18 @@ service cloud.firestore {
     //   - message: string (required)
     //   - createdAt: number (required)
     //   - status: string (enum: ['new', 'read', 'replied'])
+    //
+    // Collection: options
+    // Document ID: string (manual id)
+    // Fields:
+    //   - id: string (required)
+    //   - title: string (required)
+    //   - description: string (required)
+    //   - icon: string (required)
+    //   - image: string (required)
+    //   - gallery: list
+    //   - details: list (required)
+    //   - advantages: list (required)
     //
     // ===============================================================
 
@@ -82,6 +115,17 @@ service cloud.firestore {
              (!('order' in data) || data.order is number);
     }
 
+    function isValidPalletWrapper(data) {
+      return data.keys().hasAll(['id', 'title', 'subtitle', 'description', 'image', 'specs', 'performance']) &&
+             data.id is string &&
+             data.title is string && data.title.size() > 0 &&
+             data.subtitle is string &&
+             data.description is string &&
+             data.image is string &&
+             data.specs is list &&
+             data.performance is list;
+    }
+
     function isValidUser(data) {
       return data.keys().hasAll(['email', 'role']) &&
              data.email is string &&
@@ -98,11 +142,14 @@ service cloud.firestore {
     }
 
     function isValidOption(data) {
-      return data.keys().hasAll(['title', 'description', 'image', 'order']) &&
-             data.title is string && data.title.size() > 0 && data.title.size() < 100 &&
-             data.description is string && data.description.size() < 1000 &&
+      return data.keys().hasAll(['id', 'title', 'description', 'icon', 'image', 'details', 'advantages']) &&
+             data.id is string &&
+             data.title is string && data.title.size() > 0 &&
+             data.description is string &&
+             data.icon is string &&
              data.image is string &&
-             data.order is number;
+             data.details is list &&
+             data.advantages is list;
     }
 
     function isValidStat(data) {
@@ -124,6 +171,13 @@ service cloud.firestore {
       allow read: if true;
       allow create: if isAdmin() && isValidPost(request.resource.data);
       allow update: if isAdmin() && isValidPost(request.resource.data);
+      allow delete: if isAdmin();
+    }
+
+    match /palletWrappers/{wrapperId} {
+      allow read: if true;
+      allow create: if isAdmin() && isValidPalletWrapper(request.resource.data);
+      allow update: if isAdmin() && isValidPalletWrapper(request.resource.data);
       allow delete: if isAdmin();
     }
 

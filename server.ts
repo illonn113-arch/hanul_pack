@@ -8,26 +8,8 @@ import multer from "multer";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const DATA_FILE = path.join(process.cwd(), "data.json");
-const OPTIONS_FILE = path.join(process.cwd(), "options.json");
-
-// Ensure data files exist
-async function ensureDataFiles() {
-  try {
-    await fs.access(DATA_FILE);
-  } catch {
-    console.log("Creating default data.json");
-    await fs.writeFile(DATA_FILE, JSON.stringify([], null, 2));
-  }
-  try {
-    await fs.access(OPTIONS_FILE);
-  } catch {
-    console.log("Creating default options.json");
-    await fs.writeFile(OPTIONS_FILE, JSON.stringify([], null, 2));
-  }
-}
-
-ensureDataFiles();
+const DATA_FILE = path.join(__dirname, "data.json");
+const OPTIONS_FILE = path.join(__dirname, "options.json");
 const UPLOADS_DIR = path.join(__dirname, "uploads");
 
 // Ensure uploads directory exists
@@ -88,10 +70,8 @@ async function startServer() {
   app.get("/api/wrappers", async (req, res) => {
     try {
       const data = await fs.readFile(DATA_FILE, "utf-8");
-      console.log(`Successfully read ${DATA_FILE}`);
       res.json(JSON.parse(data));
     } catch (error) {
-      console.error(`Error reading ${DATA_FILE}:`, error);
       res.status(500).json({ error: "Failed to read data" });
     }
   });
@@ -109,10 +89,8 @@ async function startServer() {
   app.get("/api/options", async (req, res) => {
     try {
       const data = await fs.readFile(OPTIONS_FILE, "utf-8");
-      console.log(`Successfully read ${OPTIONS_FILE}`);
       res.json(JSON.parse(data));
     } catch (error) {
-      console.error(`Error reading ${OPTIONS_FILE}:`, error);
       res.status(500).json({ error: "Failed to read options" });
     }
   });
