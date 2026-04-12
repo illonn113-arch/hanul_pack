@@ -355,7 +355,8 @@ export const FALLBACK_WRAPPERS: PalletWrapper[] = [
       "https://postfiles.pstatic.net/MjAyNjAzMjRfMjUz/MDAxNzc0MzUzMDU3MTcw.BWW8kAk3NO8vDXr54vrBqThYpozAl8m7GnEBZrcZKYMg.eTbqO0W1Gyzg6gx7Uv9Ti_Qfqld-mGXuplST4-WXJIUg.JPEG/%EC%A0%9C%EB%AA%A9%EC%9D%84_%EC%9E%85%EB%A0%A5%ED%95%98%EC%84%B8%EC%9A%94_(9).jpg?type=w773",
       "https://postfiles.pstatic.net/MjAyNjAzMjRfMTYg/MDAxNzc0MzUzMDcwMzgy.LmrwT8fxZti1Ltp9OTOYLV2fumcdBB7aOGfKw50-w-gg.KXG5UiQCkb-ZDpfhD3vmi7N9rvuq78pSm_3GvyR9VUEg.JPEG/%EC%A0%95%EB%A9%B4.jpg?type=w773",
       "https://postfiles.pstatic.net/MjAyNjAzMjRfMjkw/MDAxNzc0MzUzMDcwNDEw.gK0MWWacMBiraqAKFXW49x8xnpoQ0xtrLrPIkBzV9QEg.HTpHD3EQ6niFIMcyMWhLHEJ1jIJz02bX5DUU4q-6CPQg.JPEG/%EC%B8%A1%EB%A9%B4_2.jpg?type=w773",
-      "https://postfiles.pstatic.net/MjAyNjAzMjRfODYg/MDAxNzc0MzUzNDg5ODk0.C21u6jkxfz348UvyLvFS-Rw3bdOze1d8AlBiTlnv0dgg.FgI-yRnKE9ACDKwMiVEWv7hFZurtDGWLOR6EM4o2WgYg.JPEG/%EC%B8%A1%EB%A9%B4_3.jpg?type=w773"
+      "https://postfiles.pstatic.net/MjAyNjAzMjRfODYg/MDAxNzc0MzUzNDg5ODk0.C21u6jkxfz348UvyLvFS-Rw3bdOze1d8AlBiTlnv0dgg.FgI-yRnKE9ACDKwMiVEWv7hFZurtDGWLOR6EM4o2WgYg.JPEG/%EC%B8%A1%EB%A9%B4_3.jpg?type=w773",
+      "https://postfiles.pstatic.net/MjAyNjA0MTBfMTk3/MDAxNzc1NzkzNDI1MTU1.1AwaMpvFuJ9zK8JlnXHGYq1PxIgmo-IBCFOqxW7gboIg.y_FouLmx5YiAAFMi1DbrmCVWjBCAlnccE8bCa-d26h4g.JPEG/KakaoTalk_20260109_124646049_01.jpg?type=w773"
     ],
     "fitImages": [
       "%EA%B8%B0%ED%8C%90",
