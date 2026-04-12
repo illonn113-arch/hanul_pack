@@ -10,7 +10,7 @@ export default function TapingMachines() {
       icon: <Package size={24} />
     },
     {
-      title: '간편한 조작',
+      title: '간편하고 쉬운 조작',
       description: '누구나 쉽게 사용할 수 있는 직관적인 조작 방식',
       icon: <Settings size={24} />
     },

@@ -8,30 +8,46 @@ export default function Hero() {
   const { config } = useSiteConfig();
   const [isVisible, setIsVisible] = useState(true);
 
+  const images = [
+    "https://postfiles.pstatic.net/MjAyNjA0MTJfMjM2/MDAxNzc1OTk0MTg1Mzg4.thoqKXI1wtYOEPqfBTeYvn2CWnZaAplz_yY2JHOGBlsg.8Lt_ubhAsjydAAwASv2ebFy_bK2SL5dHMffMl0mcBjsg.JPEG/1.jpg?type=w773",
+    "https://postfiles.pstatic.net/MjAyNjA0MTJfMjYz/MDAxNzc1OTk0MTg1MzY5.1OLQ3UYbRLcFUFJK9R9nAswB8buXysw3z4A3EpnqALog.70SGH0UA3hRed7TbQFKWskGeF9yCdoeXkTPLHss4Ncwg.JPEG/2.jpg?type=w773",
+    "https://postfiles.pstatic.net/MjAyNjA0MTJfMTUw/MDAxNzc1OTk0MTg1MzYz.BkbcZUcG2SWVKm3H9Hc_pWlbUwyFL4DaUhkMTl4iYeIg.NxhBSdFIKyXntzup64-xITKu_yZ9x7hSo12HPN1aYbIg.JPEG/3.jpg?type=w773",
+    "https://postfiles.pstatic.net/MjAyNjA0MTJfMTc1/MDAxNzc1OTk0MTg1MzQ2.e6J1as8UVGTYhbGZxISBQ15rx235HaV-yMjKhtjx2Rog.Ff4Y4gqBPdz3O4sFwFBYgLPUJN_6mC9tY7cGHYweCT8g.JPEG/4.jpg?type=w773"
+  ];
+
   return (
     <section 
       className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-[#1A1A1A] cursor-pointer"
       onClick={() => setIsVisible(!isVisible)}
     >
       {/* Background Image with Overlay */}
-      <div className="absolute inset-0 z-0 overflow-hidden">
-        <motion.img
-          src="https://postfiles.pstatic.net/MjAyNjA0MTJfMjQ1/MDAxNzc1OTg5NDE5MTQ4.HboAGgFNrUl1fwV1XUAFT_7XbugGxcQModY3ZjsCHgQg.ESCOzPvKfsG1fqD1B7aUJxMc3-aArstk4Oi-_WOCgecg.JPEG/PANORAMA_20260329_151807.jpg?type=w773"
-          alt="Hero Background"
+      <div className="absolute inset-0 z-0 overflow-hidden bg-black">
+        <motion.div
           animate={{
-            objectPosition: ['0% 50%', '100% 50%', '0% 50%']
+            x: ['0vw', '-300vw']
           }}
           transition={{
-            duration: 80,
+            duration: 92,
             repeat: Infinity,
+            repeatType: "reverse",
             ease: "linear"
           }}
-          className="w-full h-full object-cover opacity-80"
-          referrerPolicy="no-referrer"
-        />
+          className="flex h-full w-[400vw] flex-nowrap will-change-transform"
+        >
+          {images.map((src, idx) => (
+            <div key={idx} className="w-[100vw] h-full shrink-0">
+              <img
+                src={src}
+                alt={`Hero Background ${idx}`}
+                className="w-full h-full object-cover"
+                referrerPolicy="no-referrer"
+              />
+            </div>
+          ))}
+        </motion.div>
         {/* Balanced overlay for centered text */}
-        <div className={`absolute inset-0 bg-[#1A1A1A]/40 transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`} />
-        <div className={`absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/70 via-transparent to-[#1A1A1A]/40 transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`} />
+        <div className={`absolute inset-0 bg-black/30 transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`} />
+        <div className={`absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30 transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`} />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
