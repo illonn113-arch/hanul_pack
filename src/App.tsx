@@ -6,7 +6,6 @@ import Home from './pages/Home';
 import CompanyIntro from './pages/CompanyIntro';
 import PalletWrappers from './pages/PalletWrappers';
 import PalletWrapperDetail from './pages/PalletWrapperDetail';
-import TapingMachines from './pages/TapingMachines';
 import DeliveryCases from './pages/DeliveryCases';
 import PackagingMaterials from './pages/PackagingMaterials';
 import OptionsPage from './pages/OptionsPage';
@@ -58,7 +57,6 @@ function App() {
               <Route path="/company" element={<CompanyIntro />} />
               <Route path="/pallet-wrappers" element={<PalletWrappers />} />
               <Route path="/pallet-wrappers/:id" element={<PalletWrapperDetail />} />
-              <Route path="/taping-machines" element={<TapingMachines />} />
               <Route path="/options" element={<OptionsPage />} />
               <Route path="/options/:id" element={<OptionDetail />} />
               <Route path="/processing-site" element={<ProcessingSite />} />

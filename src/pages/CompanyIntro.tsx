@@ -24,7 +24,7 @@ export default function CompanyIntro() {
               <p>
                 한울팩은 <span className="font-bold text-gray-900">파렛트 랩핑기 전문 제조 및 공급 기업</span>으로서,<br className="hidden md:block" />
                 고객사의 생산 효율 극대화와 안전한 물류 환경 조성을 위해 끊임없이 노력하고 있습니다.<br />
-                주력 제품인 파렛트 랩핑기를 중심으로 테이핑기 등 다양한 포장 기계를 통해<br className="hidden md:block" />
+                파렛트랩핑기를 주 제품으로 다양한 포장 기계를 통해<br />
                 최상의 기술력과 신뢰를 바탕으로 최적의 장비를 공급합니다.
               </p>
             </div>
@@ -465,9 +465,9 @@ export default function CompanyIntro() {
                   <Check className="w-5 h-5 text-[#FF6321] stroke-[3]" />
                 </div>
                 <div className="space-y-2">
-                  <h4 className="text-xl font-bold text-white">테이핑기 및 포장 장비</h4>
+                  <h4 className="text-xl font-bold text-white">유지보수 및 기술 지원</h4>
                   <p className="text-gray-400 leading-relaxed break-keep">
-                    박스 포장 효율을 높여주는 다양한 테이핑 장비와 관련 솔루션을 함께 제공합니다.
+                    PCB 방식의 간편한 모듈형 수리 시스템을 통해 장비의 가동 중단을 최소화하고 수명을 연장합니다.
                   </p>
                 </div>
               </div>
@@ -478,9 +478,9 @@ export default function CompanyIntro() {
                   <Check className="w-5 h-5 text-[#FF6321] stroke-[3]" />
                 </div>
                 <div className="space-y-2">
-                  <h4 className="text-xl font-bold text-white">유지보수 및 기술 지원</h4>
+                  <h4 className="text-xl font-bold text-white">맞춤형 자동화 시스템</h4>
                   <p className="text-gray-400 leading-relaxed break-keep">
-                    PCB 방식의 간편한 모듈형 수리 시스템을 통해 장비의 가동 중단을 최소화하고 수명을 연장합니다.
+                    고객사의 현장 상황에 최적화된 시스템 구축을 통해 스마트한 물류 환경을 제안합니다.
                   </p>
                 </div>
               </div>

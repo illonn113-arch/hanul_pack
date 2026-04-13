@@ -54,14 +54,6 @@ export default function Admin() {
         updatedAt: Date.now(),
       },
       {
-        title: "반자동 테이핑기 라인 구축",
-        content: "생산 라인 효율화를 위한 반자동 테이핑기 시스템을 구축했습니다.",
-        category: "taping-machine" as const,
-        imageUrl: "https://picsum.photos/seed/taping/800/600",
-        createdAt: Date.now() - 86400000,
-        updatedAt: Date.now() - 86400000,
-      },
-      {
         title: "친환경 포장자재 공급",
         content: "기업용 친환경 완충재 및 포장자재 정기 납품 계약을 체결했습니다.",
         category: "packaging-materials" as const,
@@ -162,7 +154,6 @@ export default function Admin() {
                       <p className="font-bold text-sm">{post.title}</p>
                       <p className="text-[10px] text-[#FF6321] font-bold uppercase tracking-widest">
                         {post.category === 'pallet-wrapper' ? '파렛트랩핑기' : 
-                         post.category === 'taping-machine' ? '테이핑기' :
                          post.category === 'packaging-materials' ? '포장자재' :
                          post.category === 'portfolio' ? '납품사례' :
                          post.category === 'processing-site' ? '가공현장' : '기타'}

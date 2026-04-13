@@ -45,7 +45,6 @@ export default function Navbar() {
             <Link to="/" className={linkClass('/')}>홈</Link>
             <Link to="/company" className={linkClass('/company')}>회사소개</Link>
             <Link to="/pallet-wrappers" className={linkClass('/pallet-wrappers')}>파렛트랩핑기</Link>
-            <Link to="/taping-machines" className={linkClass('/taping-machines')}>테이핑기</Link>
             <Link to="/options" className={linkClass('/options')}>추가 옵션</Link>
             <Link to="/packaging-materials" className={linkClass('/packaging-materials')}>포장자재</Link>
             <Link to="/processing-site" className={linkClass('/processing-site')}>가공현장</Link>
@@ -92,7 +91,6 @@ export default function Navbar() {
             <Link to="/" onClick={() => setIsOpen(false)} className={mobileLinkClass('/')}>홈</Link>
             <Link to="/company" onClick={() => setIsOpen(false)} className={mobileLinkClass('/company')}>회사소개</Link>
             <Link to="/pallet-wrappers" onClick={() => setIsOpen(false)} className={mobileLinkClass('/pallet-wrappers')}>파렛트랩핑기</Link>
-            <Link to="/taping-machines" onClick={() => setIsOpen(false)} className={mobileLinkClass('/taping-machines')}>테이핑기</Link>
             <Link to="/options" onClick={() => setIsOpen(false)} className={mobileLinkClass('/options')}>추가 옵션</Link>
             <Link to="/packaging-materials" onClick={() => setIsOpen(false)} className={mobileLinkClass('/packaging-materials')}>포장자재</Link>
             <Link to="/processing-site" onClick={() => setIsOpen(false)} className={mobileLinkClass('/processing-site')}>가공현장</Link>

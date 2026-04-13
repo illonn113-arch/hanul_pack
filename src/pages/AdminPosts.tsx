@@ -167,13 +167,12 @@ export default function AdminPosts({ mode }: AdminPostsProps) {
                     />
                   </div>
                   <div>
-                    <span className="text-[10px] font-bold tracking-widest text-[#FF6321] uppercase px-2 py-0.5 bg-[#FF6321]/10 rounded-full border border-[#FF6321]/20">
-                      {post.category === 'pallet-wrapper' ? '파렛트랩핑기' : 
-                       post.category === 'taping-machine' ? '테이핑기' :
-                       post.category === 'packaging-materials' ? '포장자재' :
-                       post.category === 'portfolio' ? '납품사례' :
-                       post.category === 'processing-site' ? '가공현장' : '기타'}
-                    </span>
+                      <span className="text-[10px] font-bold tracking-widest text-[#FF6321] uppercase px-2 py-0.5 bg-[#FF6321]/10 rounded-full border border-[#FF6321]/20">
+                        {post.category === 'pallet-wrapper' ? '파렛트랩핑기' : 
+                         post.category === 'packaging-materials' ? '포장자재' :
+                         post.category === 'portfolio' ? '납품사례' :
+                         post.category === 'processing-site' ? '가공현장' : '기타'}
+                      </span>
                     <h3 className="text-xl font-bold mt-2">{post.title}</h3>
                     <p className="text-xs text-gray-500 mt-1">
                       {new Date(post.createdAt).toLocaleDateString()}
@@ -267,7 +266,6 @@ export default function AdminPosts({ mode }: AdminPostsProps) {
                           className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 text-white focus:outline-none focus:border-[#FF6321] transition-colors appearance-none"
                         >
                           <option value="pallet-wrapper">파렛트랩핑기</option>
-                          <option value="taping-machine">테이핑기</option>
                           <option value="packaging-materials">포장자재</option>
                           <option value="portfolio">납품 사례</option>
                           <option value="other">기타</option>

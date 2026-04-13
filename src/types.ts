@@ -25,7 +25,7 @@ export interface Post {
   id: string;
   title: string;
   content: string;
-  category: 'pallet-wrapper' | 'taping-machine' | 'packaging-materials' | 'portfolio' | 'processing-site' | 'other';
+  category: 'pallet-wrapper' | 'packaging-materials' | 'portfolio' | 'processing-site' | 'other';
   imageUrl: string;
   imageUrls?: string[];
   order?: number;

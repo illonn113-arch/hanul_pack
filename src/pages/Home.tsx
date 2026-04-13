@@ -19,7 +19,7 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
                 icon: <Palette size={28} />,
@@ -27,13 +27,6 @@ export default function Home() {
                 desc: "물류 효율을 극대화하는 고성능 자동/반자동 파렛트 랩핑 솔루션을 제공합니다.",
                 link: "/pallet-wrappers",
                 id: "pallet-wrappers"
-              },
-              {
-                icon: <Layout size={28} />,
-                title: "테이핑기 🩹",
-                desc: "정밀하고 빠른 박스 테이핑 시스템으로 포장 공정을 자동화합니다.",
-                link: "/taping-machines",
-                id: "taping-machine"
               },
               {
                 icon: <Rocket size={28} />,

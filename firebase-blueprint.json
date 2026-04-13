@@ -40,7 +40,7 @@
       "properties": {
         "title": { "type": "string" },
         "content": { "type": "string" },
-        "category": { "type": "string", "enum": ["pallet-wrapper", "taping-machine", "packaging-materials", "portfolio", "other"] },
+        "category": { "type": "string", "enum": ["pallet-wrapper", "packaging-materials", "portfolio", "other"] },
         "imageUrl": { "type": "string" },
         "createdAt": { "type": "number" },
         "updatedAt": { "type": "number" }
