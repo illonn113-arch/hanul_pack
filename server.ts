@@ -42,6 +42,27 @@ async function startServer() {
   app.use(express.urlencoded({ limit: "100mb", extended: true }));
   app.use("/uploads", express.static(UPLOADS_DIR));
 
+  // Serve robots.txt and sitemap.xml directly with proper headers
+  app.get("/robots.txt", async (req, res) => {
+    try {
+      const robotsPath = path.join(__dirname, "public", "robots.txt");
+      const content = await fs.readFile(robotsPath, "utf-8");
+      res.type("text/plain").status(200).send(content);
+    } catch {
+      res.type("text/plain").status(200).send("User-agent: *\nAllow: /\n\nUser-agent: Yeti\nAllow: /\n\nSitemap: https://hanulpack.kr/sitemap.xml\n");
+    }
+  });
+
+  app.get("/sitemap.xml", async (req, res) => {
+    try {
+      const sitemapPath = path.join(__dirname, "public", "sitemap.xml");
+      const content = await fs.readFile(sitemapPath, "utf-8");
+      res.type("application/xml").status(200).send(content);
+    } catch {
+      res.type("application/xml").status(200).send('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://hanulpack.kr/</loc></url></urlset>');
+    }
+  });
+
   // API routes
   app.post("/api/upload", (req, res) => {
     console.log("Upload request received:", req.headers["content-length"], "bytes");
