@@ -15,6 +15,8 @@ export default function Contact() {
     email: '',
     phone: '',
     company: '',
+    location: '',
+    hasForklift: '',
     message: ''
   });
 
@@ -36,6 +38,8 @@ export default function Contact() {
         email: '',
         phone: '',
         company: '',
+        location: '',
+        hasForklift: '',
         message: ''
       });
     } catch (error) {
@@ -65,8 +69,8 @@ export default function Contact() {
               견적문의
             </h2>
             <p className="text-lg text-gray-600 mb-12 max-w-lg leading-relaxed">
-              귀사의 물류 효율을 높이고 포장 비용을 절감할 최적의 솔루션을 제안해 드립니다.
-              지금 바로 무료 견적 상담을 신청하고 한울팩만의 차별화된 기술력을 경험해보세요.
+              귀사의 작업 환경에 맞는 최적의 랩핑 솔루션을 제안해 드립니다.<br className="hidden sm:inline" />
+              제품 상담부터 맞춤 견적까지 빠르고 친절하게 안내해 드리겠습니다.
             </p>
 
             <div className="space-y-8">
@@ -188,18 +192,50 @@ export default function Contact() {
                       className="w-full bg-white border border-gray-100 rounded-2xl px-6 py-4 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#FF6321]/20 focus:border-[#FF6321] transition-all placeholder:text-gray-300 shadow-sm"
                     />
                   </div>
+                  <div className="space-y-3 md:col-span-2">
+                    <label className="text-base font-bold text-gray-700 ml-1">설치지역</label>
+                    <input
+                      name="location"
+                      value={formData.location}
+                      onChange={handleChange}
+                      type="text"
+                      placeholder="설치하실 지역을 입력해주세요 (예: 경기도 시흥시, 경남 창원시)"
+                      className="w-full bg-white border border-gray-100 rounded-2xl px-6 py-4 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#FF6321]/20 focus:border-[#FF6321] transition-all placeholder:text-gray-300 shadow-sm"
+                    />
+                  </div>
                 </div>
 
                 <div className="space-y-3">
-                  <label className="text-base font-bold text-gray-700 ml-1">문의 내용</label>
+                  <div className="flex items-center justify-between">
+                    <label className="text-base font-bold text-gray-700 ml-1">문의 내용</label>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setFormData(prev => ({
+                          ...prev,
+                          message: `• 파렛트 사이즈: \n• 포장 제품: \n• 최대 적재 높이: \n• 최소 / 최대 중량: \n• 지게차 유무: \n• 궁금하신 점: `
+                        }));
+                      }}
+                      className="text-xs font-semibold text-[#FF6321] hover:text-[#e05215] transition-colors flex items-center gap-1 bg-[#FF6321]/10 px-3 py-1.5 rounded-full"
+                    >
+                      + 작성 양식 채우기
+                    </button>
+                  </div>
                   <textarea
                     required
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    rows={6}
-                    placeholder="문의하실 내용을 상세히 입력해주세요"
-                    className="w-full bg-white border border-gray-100 rounded-2xl px-6 py-4 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#FF6321]/20 focus:border-[#FF6321] transition-all resize-none placeholder:text-gray-300 shadow-sm"
+                    rows={8}
+                    placeholder={`원활한 견적 상담을 위해 아래 항목을 포함하여 입력해주시면 더욱 정확하고 빠른 안내가 가능합니다.
+
+• 파렛트 사이즈 (예: 1100 x 1100mm)
+• 포장 제품 (예: 종이박스, 플라스틱 용기, 파이프 등)
+• 최대 적재 높이 (예: 1800mm)
+• 최소 / 최대 중량 (예: 100kg ~ 1500kg)
+• 지게차 유무 (예: 지게차 보유 / 미보유 / 핸드리프트 사용)
+• 궁금하신 점 및 기타 문의사항`}
+                    className="w-full bg-white border border-gray-100 rounded-2xl px-6 py-4 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#FF6321]/20 focus:border-[#FF6321] transition-all resize-none placeholder:text-gray-400 placeholder:leading-relaxed shadow-sm text-sm"
                   />
                 </div>
 

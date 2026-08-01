@@ -48,6 +48,8 @@ export interface Inquiry {
   email: string;
   phone: string;
   company?: string;
+  location?: string;
+  hasForklift?: string;
   message: string;
   createdAt: number;
   status: 'new' | 'read' | 'replied';

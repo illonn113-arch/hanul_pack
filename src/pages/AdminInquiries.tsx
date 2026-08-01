@@ -1,6 +1,6 @@
 import AdminSidebar from '../components/AdminSidebar';
 import { useInquiries } from '../hooks/useInquiries';
-import { MessageSquare, Trash2, CheckCircle, Clock, Mail, Phone, Building } from 'lucide-react';
+import { MessageSquare, Trash2, CheckCircle, Clock, Mail, Phone, Building, MapPin, Truck } from 'lucide-react';
 import { motion } from 'motion/react';
 
 export default function AdminInquiries() {
@@ -94,6 +94,28 @@ export default function AdminInquiries() {
                           <p className="text-sm font-bold">{inquiry.email}</p>
                         </div>
                       </div>
+                      {inquiry.location && (
+                        <div className="flex items-center gap-3 text-gray-300">
+                          <div className="w-8 h-8 bg-white/5 rounded-lg flex items-center justify-center">
+                            <MapPin size={14} className="text-gray-500" />
+                          </div>
+                          <div>
+                            <p className="text-[10px] font-bold text-gray-500 uppercase tracking-widest">설치지역</p>
+                            <p className="text-sm font-bold">{inquiry.location}</p>
+                          </div>
+                        </div>
+                      )}
+                      {inquiry.hasForklift && (
+                        <div className="flex items-center gap-3 text-gray-300">
+                          <div className="w-8 h-8 bg-white/5 rounded-lg flex items-center justify-center">
+                            <Truck size={14} className="text-gray-500" />
+                          </div>
+                          <div>
+                            <p className="text-[10px] font-bold text-gray-500 uppercase tracking-widest">지게차 유무</p>
+                            <p className="text-sm font-bold">{inquiry.hasForklift}</p>
+                          </div>
+                        </div>
+                      )}
                     </div>
 
                     <div className="p-6 bg-white/5 rounded-2xl border border-white/5">
