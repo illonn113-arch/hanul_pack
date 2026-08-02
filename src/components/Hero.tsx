@@ -9,10 +9,10 @@ export default function Hero() {
   const [isVisible, setIsVisible] = useState(true);
 
   const images = [
-    "https://postfiles.pstatic.net/MjAyNjA0MTJfMjM2/MDAxNzc1OTk0MTg1Mzg4.thoqKXI1wtYOEPqfBTeYvn2CWnZaAplz_yY2JHOGBlsg.8Lt_ubhAsjydAAwASv2ebFy_bK2SL5dHMffMl0mcBjsg.JPEG/1.jpg?type=w773",
-    "https://postfiles.pstatic.net/MjAyNjA0MTJfMjYz/MDAxNzc1OTk0MTg1MzY5.1OLQ3UYbRLcFUFJK9R9nAswB8buXysw3z4A3EpnqALog.70SGH0UA3hRed7TbQFKWskGeF9yCdoeXkTPLHss4Ncwg.JPEG/2.jpg?type=w773",
-    "https://postfiles.pstatic.net/MjAyNjA0MTJfMTUw/MDAxNzc1OTk0MTg1MzYz.BkbcZUcG2SWVKm3H9Hc_pWlbUwyFL4DaUhkMTl4iYeIg.NxhBSdFIKyXntzup64-xITKu_yZ9x7hSo12HPN1aYbIg.JPEG/3.jpg?type=w773",
-    "https://postfiles.pstatic.net/MjAyNjA0MTJfMTc1/MDAxNzc1OTk0MTg1MzQ2.e6J1as8UVGTYhbGZxISBQ15rx235HaV-yMjKhtjx2Rog.Ff4Y4gqBPdz3O4sFwFBYgLPUJN_6mC9tY7cGHYweCT8g.JPEG/4.jpg?type=w773"
+    '/hero1.png',
+    '/hero2.png',
+    '/hero3.png',
+    '/hero4.png'
   ];
 
   return (
@@ -27,7 +27,7 @@ export default function Hero() {
             x: ['0vw', '-300vw']
           }}
           transition={{
-            duration: 92,
+            duration: 60,
             repeat: Infinity,
             repeatType: "reverse",
             ease: "linear"
