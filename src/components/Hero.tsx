@@ -9,10 +9,22 @@ export default function Hero() {
   const [isVisible, setIsVisible] = useState(true);
 
   const images = [
-    '/hero1.png',
-    '/hero2.png',
-    '/hero3.png',
-    '/hero4.png'
+    {
+      local: '/hero1.png',
+      remote: 'https://postfiles.pstatic.net/MjAyNjA4MDJfMjY2/MDAxNzg1NjY4MTEzMDc0.Ohslya54ItstoKZG-pJnfgKUg3iisDGQ-autRFGcyeog.P8VLvP1BuQ4eEJLMWdwExYPZW8eiEkoBx4QfQ3h0isIg.PNG/20260802_165400_1-1.png?type=w773'
+    },
+    {
+      local: '/hero2.png',
+      remote: 'https://postfiles.pstatic.net/MjAyNjA8MDJfNjAg/MDAxNzg1NjY4MTEzMTY2.feFjNBLqb1srKdyaZ0UZgj_BIbRoaSnbxSiYfefctfog.YZDFy0WSS_5YK-I-chNuzTHSuQ8uRM_7Cl63jh9huH0g.PNG/20260802_165400_1-2.png?type=w773'
+    },
+    {
+      local: '/hero3.png',
+      remote: 'https://postfiles.pstatic.net/MjAyNjA4MDJfMTE0/MDAxNzg1NjY4MTEzMzI5.Z7Np-lCj2zKn_6DLZLANnnpjZMBPKHYUxRFYlMaqAWQg.mHF4-HmjQsR-MIgBtjT52T0Xh1ZPp8_odaMoOsArWIsg.PNG/20260802_165400_1-3.png?type=w773'
+    },
+    {
+      local: '/hero4.png',
+      remote: 'https://postfiles.pstatic.net/MjAyNjA4MDJfNDYg/MDAxNzg1NjY4MTEzMTQw.iC4SoS4MrhPKLx1EZdYb3B9tCPbDCloxug31wLRgM1Yg.bLuuC_OalXEpPEXogtLuoZToJGRX7Oh-wrrC5YLoEXAg.PNG/20260802_165400_1-4.png?type=w773'
+    }
   ];
 
   return (
@@ -34,13 +46,20 @@ export default function Hero() {
           }}
           className="flex h-full w-[400vw] flex-nowrap will-change-transform"
         >
-          {images.map((src, idx) => (
+          {images.map((img, idx) => (
             <div key={idx} className="w-[100vw] h-full shrink-0">
               <img
-                src={src}
-                alt={`Hero Background ${idx}`}
-                className="w-full h-full object-cover"
+                src={img.local}
+                alt={`Hero Background ${idx + 1}`}
+                className="w-full h-full object-cover object-center"
                 referrerPolicy="no-referrer"
+                onError={(e) => {
+                  // Fallback to remote if local fails
+                  const target = e.currentTarget;
+                  if (target.src !== img.remote) {
+                    target.src = img.remote;
+                  }
+                }}
               />
             </div>
           ))}
