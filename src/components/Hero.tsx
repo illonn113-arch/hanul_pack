@@ -1,54 +1,28 @@
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { useSiteConfig } from '../hooks/useSiteConfig';
-import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import { useSiteConfig } from "../hooks/useSiteConfig";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
-const HERO_IMAGES = [
-  {
-    local: "/hero1.jpg",
-    remote: "https://postfiles.pstatic.net/MjAyNjA4MDRfMjA5/MDAxNzg1ODQ4MTQxMzY1.vdm_e6ykYLfDJ33YWwj4v5vhyHhcos9uacLo291ErqEg.9x-1evLc6yZq-54oj2r7Wa5AB_711ciUlonmH3WECJkg.JPEG/%EC%A0%9C%EB%AA%A9_%EC%97%86%EC%9D%8C-8.jpg?type=w773"
-  },
-  {
-    local: "/hero2.jpg",
-    remote: "https://postfiles.pstatic.net/MjAyNjA8MDJfMTE5/MDAxNzg1ODQ4MTQxMzY4.mCXXVV0eWAy-euWeNgsgWuDoUmmw4Tu9RLKLmeeTL7Ag.O1hOepVOu84kbLaHsdMrRNlfv__5f3OQyZWeOCF2KRQg.JPEG/%EC%A0%9C%EB%AA%A9_%EC%97%86%EC%9D%8C-7.jpg?type=w773"
-  },
-  {
-    local: "/hero4.jpg",
-    remote: "https://postfiles.pstatic.net/MjAyNjA8MDJfOTkg/MDAxNzg1ODQ4MTQxMzcz.jKV1zlqbRjvtuioLWpHm2XrBUapdob499XCJwMyHr4Eg.0QdXJ4MzTYRqDyJrGpsMct9nuDBZBlp3QEa2xP7l4-cg.JPEG/%EC%A0%9C%EB%AA%A9_%EC%97%86%EC%9D%8C-5.jpg?type=w773"
-  },
-  {
-    local: "/hero5.jpg",
-    remote: "https://postfiles.pstatic.net/MjAyNjA8MDJfMjE1/MDAxNzg1ODQ4MTQxMzc9.Ppdxw9yvvKE41QnqYHGMc2n4ffRRkOZ-6QLOzq_HtJsg.4WJez7oi35_GF8tfummGO1trwvC1d9nuKezopzbnWfog.JPEG/%EC%A0%9C%EB%AA%A9_%EC%97%86%EC%9D%8C-3.jpg?type=w773"
-  },
-  {
-    local: "/hero6.jpg",
-    remote: "https://postfiles.pstatic.net/MjAyNjA8MDJfMjcw/MDAxNzg1ODQ4MTQxMzc9.YRDXxlqWTap8hqA58giVir3AbmzfS34BTRN4TlcioQwg.Uezh3k9ZfqeuMFr4IFYXi-VshvnvNg8A5nH-uyPTqAUg.JPEG/%EC%A0%9C%EB%AA%A9_%EC%97%86%EC%9D%8C-2.jpg?type=w773"
-  },
-  {
-    local: "/hero7.jpg",
-    remote: "https://postfiles.pstatic.net/MjAyNjA8MDJfMTIz/MDAxNzg1ODQ4MTQxMzc7.ua7GR7a4mbja_rMcrfFAyz4H4KRByqqljHvPsbt-KHUg.UARWWIOX2k0r8zoMOk9ilF2Erf9WseoOvVvDH-aJcRsg.JPEG/%EC%A0%9C%EB%AA%A9_%EC%97%86%EC%9D%8C-1.jpg?type=w773"
-  }
-];
+import hero1 from "../assets/hero/hero1.jpg";
+import hero2 from "../assets/hero/hero2.jpg";
+import hero4 from "../assets/hero/hero4.jpg";
+import hero5 from "../assets/hero/hero5.jpg";
+import hero6 from "../assets/hero/hero6.jpg";
+import hero7 from "../assets/hero/hero7.jpg";
+
+const HERO_IMAGES = [hero1, hero2, hero4, hero5, hero6, hero7];
 
 export default function Hero() {
   const { config } = useSiteConfig();
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [sources, setSources] = useState<string[]>(HERO_IMAGES.map(img => img.local));
   const [isVisible, setIsVisible] = useState(true);
 
-  // Preload all 4 images on mount
+  // Preload all images on mount
   useEffect(() => {
-    HERO_IMAGES.forEach((item, idx) => {
+    HERO_IMAGES.forEach((src) => {
       const img = new Image();
-      img.src = item.local;
-      img.onerror = () => {
-        setSources(prev => {
-          const next = [...prev];
-          next[idx] = item.remote;
-          return next;
-        });
-      };
+      img.src = src;
     });
   }, []);
 
@@ -70,17 +44,6 @@ export default function Hero() {
     setCurrentIndex((prev) => (prev + 1) % HERO_IMAGES.length);
   };
 
-  const handleImageError = (index: number) => {
-    setSources((prev) => {
-      if (prev[index] !== HERO_IMAGES[index].remote) {
-        const updated = [...prev];
-        updated[index] = HERO_IMAGES[index].remote;
-        return updated;
-      }
-      return prev;
-    });
-  };
-
   return (
     <section 
       className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-[#121212] select-none cursor-pointer"
@@ -98,18 +61,16 @@ export default function Hero() {
             className="absolute inset-0 w-full h-full"
           >
             <img
-              src={sources[currentIndex]}
+              src={HERO_IMAGES[currentIndex]}
               alt={`한울팩 대표 현장 ${currentIndex + 1}`}
-              referrerPolicy="no-referrer"
-              onError={() => handleImageError(currentIndex)}
               className="w-full h-full object-cover object-center block"
             />
           </motion.div>
         </AnimatePresence>
         
         {/* Overlays adjust opacity when text is hidden for clear image viewing */}
-        <div className={`absolute inset-0 bg-black/35 pointer-events-none transition-opacity duration-700 ${isVisible ? 'opacity-100' : 'opacity-10'}`} />
-        <div className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/40 pointer-events-none transition-opacity duration-700 ${isVisible ? 'opacity-100' : 'opacity-10'}`} />
+        <div className={`absolute inset-0 bg-black/35 pointer-events-none transition-opacity duration-700 ${isVisible ? "opacity-100" : "opacity-10"}`} />
+        <div className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/40 pointer-events-none transition-opacity duration-700 ${isVisible ? "opacity-100" : "opacity-10"}`} />
       </div>
 
       {/* Hero Content */}
@@ -189,8 +150,8 @@ export default function Hero() {
             <span
               className={`block rounded-full transition-all duration-300 ${
                 idx === currentIndex
-                  ? 'w-8 h-2.5 bg-[#FF6321] shadow-md shadow-[#FF6321]/50'
-                  : 'w-2.5 h-2.5 bg-white/40 hover:bg-white/80'
+                  ? "w-8 h-2.5 bg-[#FF6321] shadow-md shadow-[#FF6321]/50"
+                  : "w-2.5 h-2.5 bg-white/40 hover:bg-white/80"
               }`}
             />
           </button>
