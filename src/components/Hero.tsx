@@ -63,6 +63,13 @@ export default function Hero() {
             <img
               src={HERO_IMAGES[currentIndex]}
               alt={`한울팩 대표 현장 ${currentIndex + 1}`}
+              onError={(e) => {
+                const fallbacks = ["/hero1.jpg", "/hero2.jpg", "/hero4.jpg", "/hero5.jpg", "/hero6.jpg", "/hero7.jpg"];
+                const fb = fallbacks[currentIndex % fallbacks.length];
+                if (e.currentTarget.src !== window.location.origin + fb) {
+                  e.currentTarget.src = fb;
+                }
+              }}
               className="w-full h-full object-cover object-center block"
             />
           </motion.div>
