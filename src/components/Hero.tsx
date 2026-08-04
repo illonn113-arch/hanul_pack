@@ -63,6 +63,7 @@ export default function Hero() {
             <img
               src={HERO_IMAGES[currentIndex]}
               alt={`한울팩 대표 현장 ${currentIndex + 1}`}
+              referrerPolicy="no-referrer"
               onError={(e) => {
                 const fallbacks = [
                   "/hero1.jpg",
