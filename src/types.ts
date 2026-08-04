@@ -4,6 +4,8 @@ export interface SiteConfig {
   description: string;
   heroTitle: string;
   heroSubtitle: string;
+  heroImageUrl?: string;
+  homeDetailImages?: string[];
   contactEmail: string;
   contactPhone: string;
   address: string;

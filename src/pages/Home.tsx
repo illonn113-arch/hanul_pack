@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <main>
       <Hero />
-      
+
       {/* Services Section */}
       <section id="services" className="py-24 bg-[#FCFCFC] relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
