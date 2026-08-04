@@ -64,7 +64,14 @@ export default function Hero() {
               src={HERO_IMAGES[currentIndex]}
               alt={`한울팩 대표 현장 ${currentIndex + 1}`}
               onError={(e) => {
-                const fallbacks = ["/hero1.jpg", "/hero2.jpg", "/hero4.jpg", "/hero5.jpg", "/hero6.jpg", "/hero7.jpg"];
+                const fallbacks = [
+                  "/hero1.jpg",
+                  "/hero2.jpg",
+                  "/hero4.jpg",
+                  "/hero5.jpg",
+                  "/hero6.jpg",
+                  "/hero7.jpg",
+                ];
                 const fb = fallbacks[currentIndex % fallbacks.length];
                 if (e.currentTarget.src !== window.location.origin + fb) {
                   e.currentTarget.src = fb;
@@ -123,47 +130,50 @@ export default function Hero() {
         </AnimatePresence>
       </div>
 
-      {/* Manual Controls - Prev/Next Arrows */}
-      <button
-        onClick={handlePrev}
-        aria-label="Previous Slide"
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-black/40 hover:bg-[#FF6321] text-white border border-white/20 backdrop-blur-md transition-all duration-200 hidden sm:flex items-center justify-center shadow-lg hover:scale-110 active:scale-90"
-      >
-        <ChevronLeft size={24} />
-      </button>
-      <button
-        onClick={handleNext}
-        aria-label="Next Slide"
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-black/40 hover:bg-[#FF6321] text-white border border-white/20 backdrop-blur-md transition-all duration-200 hidden sm:flex items-center justify-center shadow-lg hover:scale-110 active:scale-90"
-      >
-        <ChevronRight size={24} />
-      </button>
-
-      {/* Slide Pagination Indicators */}
-      <div 
-        onClick={(e) => e.stopPropagation()}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex items-center gap-3 bg-black/50 px-4 py-2 rounded-full border border-white/15 backdrop-blur-md shadow-xl"
-      >
-        {HERO_IMAGES.map((_, idx) => (
+      {/* Manual Controls & Pagination (Only when multiple images) */}
+      {HERO_IMAGES.length > 1 && (
+        <>
           <button
-            key={idx}
-            onClick={(e) => {
-              e.stopPropagation();
-              setCurrentIndex(idx);
-            }}
-            aria-label={`Go to slide ${idx + 1}`}
-            className="group relative p-1 focus:outline-none"
+            onClick={handlePrev}
+            aria-label="Previous Slide"
+            className="absolute left-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-black/40 hover:bg-[#FF6321] text-white border border-white/20 backdrop-blur-md transition-all duration-200 hidden sm:flex items-center justify-center shadow-lg hover:scale-110 active:scale-90"
           >
-            <span
-              className={`block rounded-full transition-all duration-300 ${
-                idx === currentIndex
-                  ? "w-8 h-2.5 bg-[#FF6321] shadow-md shadow-[#FF6321]/50"
-                  : "w-2.5 h-2.5 bg-white/40 hover:bg-white/80"
-              }`}
-            />
+            <ChevronLeft size={24} />
           </button>
-        ))}
-      </div>
+          <button
+            onClick={handleNext}
+            aria-label="Next Slide"
+            className="absolute right-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-black/40 hover:bg-[#FF6321] text-white border border-white/20 backdrop-blur-md transition-all duration-200 hidden sm:flex items-center justify-center shadow-lg hover:scale-110 active:scale-90"
+          >
+            <ChevronRight size={24} />
+          </button>
+
+          <div 
+            onClick={(e) => e.stopPropagation()}
+            className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex items-center gap-3 bg-black/50 px-4 py-2 rounded-full border border-white/15 backdrop-blur-md shadow-xl"
+          >
+            {HERO_IMAGES.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setCurrentIndex(idx);
+                }}
+                aria-label={`Go to slide ${idx + 1}`}
+                className="group relative p-1 focus:outline-none"
+              >
+                <span
+                  className={`block rounded-full transition-all duration-300 ${
+                    idx === currentIndex
+                      ? "w-8 h-2.5 bg-[#FF6321] shadow-md shadow-[#FF6321]/50"
+                      : "w-2.5 h-2.5 bg-white/40 hover:bg-white/80"
+                  }`}
+                />
+              </button>
+            ))}
+          </div>
+        </>
+      )}
     </section>
   );
 }
