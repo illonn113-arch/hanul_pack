@@ -110,22 +110,22 @@ export default function Hero() {
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="max-w-4xl mx-auto text-center flex flex-col items-center pointer-events-auto"
             >
-              <span className="inline-block px-4 py-1.5 mb-6 text-[10px] font-bold tracking-[0.2em] text-[#FF6321] uppercase border border-[#FF6321]/30 rounded-full bg-[#FF6321]/10 backdrop-blur-md">
+              <span className="inline-block px-3.5 py-1 mb-5 text-[10px] sm:text-xs font-bold tracking-[0.2em] text-[#FF6321] uppercase border border-[#FF6321]/30 rounded-full bg-[#FF6321]/10 backdrop-blur-md">
                 Premium Packaging Solutions
               </span>
-              <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter mb-8 leading-[1.1] whitespace-pre-line text-[#F5F5F5] drop-shadow-2xl">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-6 leading-[1.25] whitespace-pre-line text-[#F5F5F5] drop-shadow-2xl">
                 {config.heroTitle}
               </h1>
-              <p className="text-base sm:text-lg md:text-xl text-gray-200 max-w-2xl mb-10 leading-relaxed whitespace-pre-line break-keep drop-shadow-lg">
+              <p className="text-sm sm:text-base md:text-lg text-gray-200 max-w-xl mb-8 leading-relaxed whitespace-pre-line break-keep drop-shadow-lg">
                 {config.heroSubtitle}
               </p>
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
                 <Link
-                  to="/company"
+                  to="/pallet-wrappers"
                   className="w-full sm:w-auto px-8 py-4 bg-[#FF6321] hover:bg-[#E5591D] text-white font-bold rounded-full transition-all flex items-center justify-center group shadow-lg shadow-[#FF6321]/30"
                 >
-                  회사 소개 보기
+                  랩핑기 보기
                   <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
                 </Link>
                 <Link

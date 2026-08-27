@@ -30,9 +30,15 @@ export function useSiteConfig() {
           }
         };
 
-        // Special handling for the initial transition from placeholder names
+        // Special handling for initial transitions & default phrase updates
         if (data.name === 'Ding Studio' || data.name === '한울팩') {
           mergedConfig.name = DEFAULT_SITE_CONFIG.name;
+        }
+        if (!data.heroTitle || data.heroTitle.includes('최고의 포장') || data.heroTitle.includes('함께합니다') || data.heroTitle === "국산 파렛트랩핑기 전문 제조기업\n한울팩") {
+          mergedConfig.heroTitle = DEFAULT_SITE_CONFIG.heroTitle;
+        }
+        if (!data.heroSubtitle || data.heroSubtitle.includes('산업용 포장')) {
+          mergedConfig.heroSubtitle = DEFAULT_SITE_CONFIG.heroSubtitle;
         }
         
         setConfig(mergedConfig);

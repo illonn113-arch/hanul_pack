@@ -4,8 +4,8 @@ export const DEFAULT_SITE_CONFIG: SiteConfig = {
   name: "한울팩",
   logoUrl: "https://postfiles.pstatic.net/MjAyNjAzMjNfNTIg/MDAxNzc0Mjc2MTkyODYx.BorEaAhhsT3dcpw_JIrKKl69qMXSavAJc71EQtBzTlkg.WC4LgIJo-pWdSz2i0WWX4pT5INBxoIeO_bNIXtCjgbIg.JPEG/%ED%9A%8C%EC%82%AC_%EB%A1%9C%EA%B3%A0_%EC%83%81%ED%98%B8%EB%AA%85.jpg?type=w773",
   description: "파렛트랩핑기 전문 기업 한울팩",
-  heroTitle: "최고의 포장\n한울팩이 함께합니다.",
-  heroSubtitle: "파렛트랩핑기 산업용 포장 기계 전문 제조 및 납품",
+  heroTitle: "국산 파렛트랩핑기\n전문 제조기업 한울팩",
+  heroSubtitle: "제품 상담부터 설치 및 A/S까지",
   heroImageUrl: "https://postfiles.pstatic.net/MjAyNjA4MDVfMTQg/MDAxNzg1ODU4NDA4NDk5.JC1KHNSG1TIVR0UUoWQyeyUEn6qTB9R9cFaX9-UxNY4g.YV05HrooqTFdeVWoOrp0aiEPXq63YmzB-vctI0dhM8Eg.JPEG/PM-1.P-pa/20260802_165400.jpg?type=w773",
   homeDetailImages: [
     "https://postfiles.pstatic.net/MjAyNjA8MDRfMjA5/MDAxNzg1ODQ4MTQxMzY1.vdm_e6ykYLfDJ33YWwj4v5vhyHhcos9uacLo291ErqEg.9x-1evLc6yZq-54oj2r7Wa5AB_711ciUlonmH3WECJkg.JPEG/%EC%A0%9C%EB%AA%A9_%EC%97%86%EC%9D%8C-8.jpg?type=w773",
