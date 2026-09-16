@@ -47,7 +47,6 @@ export default function Navbar() {
             <Link to="/pallet-wrappers" className={linkClass('/pallet-wrappers')}>파렛트랩핑기</Link>
             <Link to="/options" className={linkClass('/options')}>추가 옵션</Link>
             <Link to="/packaging-materials" className={linkClass('/packaging-materials')}>포장자재</Link>
-            <Link to="/processing-site" className={linkClass('/processing-site')}>가공현장</Link>
             <Link to="/delivery-cases" className={linkClass('/delivery-cases')}>납품 사례</Link>
             <Link 
               to="/contact"
@@ -93,7 +92,6 @@ export default function Navbar() {
             <Link to="/pallet-wrappers" onClick={() => setIsOpen(false)} className={mobileLinkClass('/pallet-wrappers')}>파렛트랩핑기</Link>
             <Link to="/options" onClick={() => setIsOpen(false)} className={mobileLinkClass('/options')}>추가 옵션</Link>
             <Link to="/packaging-materials" onClick={() => setIsOpen(false)} className={mobileLinkClass('/packaging-materials')}>포장자재</Link>
-            <Link to="/processing-site" onClick={() => setIsOpen(false)} className={mobileLinkClass('/processing-site')}>가공현장</Link>
             <Link to="/delivery-cases" onClick={() => setIsOpen(false)} className={mobileLinkClass('/delivery-cases')}>납품 사례</Link>
             <Link 
               to="/contact"

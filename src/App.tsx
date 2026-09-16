@@ -10,7 +10,6 @@ import DeliveryCases from './pages/DeliveryCases';
 import PackagingMaterials from './pages/PackagingMaterials';
 import OptionsPage from './pages/OptionsPage';
 import OptionDetail from './pages/OptionDetail';
-import ProcessingSite from './pages/ProcessingSite';
 import ContactPage from './pages/ContactPage';
 import Admin from './pages/Admin';
 import AdminPosts from './pages/AdminPosts';
@@ -59,10 +58,10 @@ function App() {
               <Route path="/pallet-wrappers/:id" element={<PalletWrapperDetail />} />
               <Route path="/options" element={<OptionsPage />} />
               <Route path="/options/:id" element={<OptionDetail />} />
-              <Route path="/processing-site" element={<ProcessingSite />} />
               <Route path="/delivery-cases" element={<DeliveryCases />} />
               <Route path="/packaging-materials" element={<PackagingMaterials />} />
               <Route path="/contact" element={<ContactPage />} />
+              <Route path="/processing-site" element={<Navigate to="/delivery-cases" replace />} />
             </Route>
             
             {/* Admin Routes */}
@@ -92,11 +91,7 @@ function App() {
                 <AdminPosts mode="delivery-cases" />
               </ProtectedRoute>
             } />
-            <Route path="/admin/processing-site" element={
-              <ProtectedRoute>
-                <AdminPosts mode="processing-site" />
-              </ProtectedRoute>
-            } />
+            <Route path="/admin/processing-site" element={<Navigate to="/admin/delivery-cases" replace />} />
             <Route path="/admin/settings" element={
               <ProtectedRoute>
                 <AdminSettings />

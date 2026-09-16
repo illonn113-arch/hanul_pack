@@ -247,12 +247,14 @@ export default function AdminOptions() {
                         onChange={(e) => updateOption(option.id, { icon: e.target.value })}
                         className="w-16 h-12 bg-white/5 border border-white/10 rounded-xl px-2 focus:border-[#FF6321] outline-none"
                       >
+                        <option value="Radio">Radio (리모컨)</option>
+                        <option value="Zap">Zap</option>
                         <option value="Ruler">Ruler</option>
                         <option value="Eye">Eye</option>
                         <option value="Shield">Shield</option>
                         <option value="PlusCircle">PlusCircle</option>
                         <option value="Settings">Settings</option>
-                        <option value="Zap">Zap</option>
+                        <option value="Square">Square</option>
                         <option value="Lock">Lock</option>
                       </select>
                       <input

@@ -78,11 +78,13 @@ export default function OptionDetail() {
                 {option.description}
               </p>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-12">
                 {option.advantages.map((adv, i) => (
-                  <div key={i} className="p-6 bg-gray-50 rounded-3xl border border-gray-100">
-                    <h4 className="font-bold text-gray-900 mb-2">{adv.title}</h4>
-                    <p className="text-sm text-gray-500 break-keep">{adv.description}</p>
+                  <div key={i} className="p-5 sm:p-6 bg-gray-50 rounded-3xl border border-gray-100 flex flex-col justify-start">
+                    <h4 className="font-bold text-gray-900 mb-2 text-base break-keep whitespace-nowrap overflow-hidden text-ellipsis">
+                      {adv.title}
+                    </h4>
+                    <p className="text-sm text-gray-500 break-keep leading-relaxed">{adv.description}</p>
                   </div>
                 ))}
               </div>
@@ -117,6 +119,61 @@ export default function OptionDetail() {
           </div>
         </div>
       </section>
+
+      {/* Work Process Section */}
+      {option.processSteps && option.processSteps.length > 0 && (
+        <section className="py-24 bg-gradient-to-b from-[#FFF9F6] to-white border-y border-orange-100/60">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-3xl mx-auto text-center mb-16">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#FFF0E9] rounded-full text-xs font-bold text-[#FF6321] uppercase tracking-wider mb-4 border border-[#FF6321]/20">
+                Work Process
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 flex items-center justify-center gap-3">
+                <span>🕹️</span> {option.processTitle || '기본형 랩핑기 작업 과정 (리모컨 적용)'}
+              </h2>
+              <p className="text-gray-600 text-base max-w-xl mx-auto break-keep">
+                지게차 승하차 횟수를 획기적으로 줄이고 랩 고정 및 전용 절단 장치로 효율을 극대화한 {option.processSteps.length}단계 랩핑 과정입니다.
+              </p>
+              <div className="h-1.5 w-16 bg-[#FF6321] mx-auto rounded-full mt-6" />
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+              {option.processSteps.map((step, idx) => {
+                const isLastStandalone = idx === 6 && option.processSteps!.length === 7;
+                return (
+                  <motion.div
+                    key={step.step}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: idx * 0.08 }}
+                    viewport={{ once: true }}
+                    className={`rounded-3xl p-8 border shadow-sm hover:shadow-xl transition-all duration-300 relative flex flex-col group ${
+                      isLastStandalone
+                        ? 'md:col-span-2 lg:col-span-3 max-w-2xl mx-auto w-full bg-gradient-to-br from-[#FFF9F6] to-white border-orange-200 hover:border-[#FF6321]'
+                        : 'bg-white border-gray-100 hover:border-[#FF6321]/30'
+                    }`}
+                  >
+                    <div className="flex items-center justify-between mb-5">
+                      <span className="w-10 h-10 rounded-2xl bg-[#FFF0E9] text-[#FF6321] group-hover:bg-[#FF6321] group-hover:text-white font-black text-sm flex items-center justify-center transition-colors shadow-sm">
+                        {String(step.step).padStart(2, '0')}
+                      </span>
+                      <span className="text-[11px] font-bold text-gray-400 tracking-wider">
+                        STEP {String(step.step).padStart(2, '0')}
+                      </span>
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#FF6321] transition-colors">
+                      {step.title}
+                    </h3>
+                    <p className="text-sm text-gray-600 leading-relaxed break-keep">
+                      {step.description}
+                    </p>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Gallery Section */}
       {option.gallery && option.gallery.length > 0 && (

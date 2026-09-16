@@ -13,7 +13,6 @@ export default function AdminSidebar() {
     { icon: <Settings size={20} />, label: '추가 옵션 관리', path: '/admin/options' },
     { icon: <MessageSquare size={20} />, label: '문의 내역', path: '/admin/inquiries' },
     { icon: <FileText size={20} />, label: '납품사례 관리', path: '/admin/delivery-cases' },
-    { icon: <FileText size={20} />, label: '가공현장 관리', path: '/admin/processing-site' },
     { icon: <Settings size={20} />, label: '사이트 설정', path: '/admin/settings' },
   ];
 

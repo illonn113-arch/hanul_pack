@@ -273,11 +273,7 @@ export const FALLBACK_WRAPPERS: PalletWrapper[] = [
       { "title": "간편한 조작", "description": "직관적인 리모콘 버튼 구성으로 누구나 쉽게 숙달할 수 있으며, 비상 정지 기능이 포함되어 있어 위급 상황 시 즉각적인 대처가 가능합니다." }
     ],
     "detailedDescription": "리모콘 랩핑기는 무선 제어 기술을 도입하여 지게차 운전자가 차량에서 내리지 않고도 모든 과정을 제어할 수 있는 스마트 물류 장비입니다. \n\n지게차에서 내리고 타는 반복적인 동작을 없애주어 작업자의 피로도를 획기적으로 줄여주며, 포장 작업 시간을 단축시켜 전체적인 물류 흐름을 원활하게 합니다.",
-    "advantages": [
-      { "title": "효율성", "description": "반복적인 승하차 과정을 생략하여 작업 속도를 획기적으로 높입니다." },
-      { "title": "안전성", "description": "원거리 조작으로 작업자와 기계 간의 안전 거리를 확보합니다." },
-      { "title": "편의성", "description": "복잡한 설정 없이 리모콘 하나로 간편하게 시작과 정지가 가능합니다." }
-    ],
+    "advantages": [],
     "customizedInfo": { "description": "표준 사양 외에도 고객사의 작업 환경에 맞춘 특수 제작이 가능합니다.", "items": [] },
     "recommendedIndustries": [
       "지게차 작업 비중이 높은 대형 물류 센터 및 창고",
@@ -415,7 +411,12 @@ export const fetchPalletWrappers = async (): Promise<PalletWrapper[]> => {
       return FALLBACK_WRAPPERS;
     }
     
-    return wrappers;
+    return wrappers.map(w => {
+      if (w.id === 'remote') {
+        return { ...w, advantages: [] };
+      }
+      return w;
+    });
   } catch (error) {
     console.error("Firestore fetch error, using fallback:", error);
     return FALLBACK_WRAPPERS;

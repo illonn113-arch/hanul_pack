@@ -1,7 +1,13 @@
-import { Ruler, Eye, Shield, PlusCircle, Settings, Zap, Lock, Square } from 'lucide-react';
-import { collection, getDocs, doc, setDoc, writeBatch } from 'firebase/firestore';
+import { Ruler, Eye, Shield, PlusCircle, Settings, Zap, Lock, Square, Radio } from 'lucide-react';
+import { collection, getDocs, doc, writeBatch } from 'firebase/firestore';
 import { db } from '../firebase';
 import { handleFirestoreError, OperationType } from '../lib/firestore-errors';
+
+export interface ProcessStep {
+  step: number;
+  title: string;
+  description: string;
+}
 
 export interface OptionItem {
   id: string;
@@ -12,12 +18,15 @@ export interface OptionItem {
   gallery?: string[];
   details: string[];
   advantages: { title: string; description: string }[];
+  processTitle?: string;
+  processSteps?: ProcessStep[];
 }
 
 export const getIcon = (iconName: string | React.ReactNode) => {
   if (typeof iconName !== 'string') return iconName;
   
   switch (iconName) {
+    case 'Radio': return <Radio size={24} />;
     case 'Ruler': return <Ruler size={24} />;
     case 'Eye': return <Eye size={24} />;
     case 'Shield': return <Shield size={24} />;
@@ -31,6 +40,77 @@ export const getIcon = (iconName: string | React.ReactNode) => {
 };
 
 export const FALLBACK_OPTIONS: OptionItem[] = [
+  {
+    "id": "remote-control",
+    "title": "리모컨 (Remote Control)",
+    "description": "지게차 승하차 횟수를 대폭 줄이고, 랩을 직접 묶거나 칼로 자르는 번거로운 수작업을 원판 랩 고정 장치와 무선 리모컨으로 해결합니다.",
+    "icon": "Radio",
+    "image": "https://postfiles.pstatic.net/MjAyNjA0MDlfMjg2/MDAxNzc1NzA3NjEyMjc2.D1i1s7IwkcgR937TOLkOgoOQf0v_HN-GW0DniabQy0sg.ZEs9Wu7pwNON729njmvz2sSA7RtTSmNGuRt-HWHDTT8g.JPEG/%EB%A6%AC%EB%AA%A8%EC%BB%A8%EB%9E%A9%ED%95%91%EA%B8%B0_%EB%88%84%EB%81%BC.jpg?type=w773",
+    "gallery": [
+      "https://mblogvideo-phinf.pstatic.net/MjAyNjA0MDlfMTEz/MDAxNzc1NzE4NjQ0MzI5.q_zcO27tqdPOOBA6bBYzg6TKxR0A8jwdm5msEufCAjYg.Ub-L6fI--n9nCWwP5SiqovfRmrlHbXthTnRri4C2hX0g.GIF/20260329_152216.gif?type=mp4w800",
+      "https://postfiles.pstatic.net/MjAyNjA0MDlfMTU3/MDAxNzc1NzA3NjUzMDEx.R8uADSSkmH2HbELOfzL63zn9iP8ebhsS5nFQDMKi_s4g.Xe4ivI_JaTd6BGUed-LGIOa0s_KT61Y3VVcGUPnQK2Ag.JPEG/20260329_141745.jpg?type=w773",
+      "https://postfiles.pstatic.net/MjAyNjA0MDlfMTMz/MDAxNzc1NzA3NjYyMjg4.ugCsaBokfdHGhq4TZTRiK0pdiDOWpllm7jI3IkvUoCAg.lwWmmM93jN5qUjR_qlSWNRNLZE2awGe6wMGSk1qsP6Eg.JPEG/20260329_141825.jpg?type=w773",
+      "https://postfiles.pstatic.net/MjAyNjA0MDlfMTky/MDAxNzc1NzA3NzM0NzY1.QlaUHAOENXGpCXrlgu5vkdTweCCXknJZm8qAahM5A8Qg.5dYohGqOWUuGxVlHsur85Dxti7XgD0d-ogwV3Lsf94Yg.JPEG/20260312_122823.jpg?type=w773",
+      "https://postfiles.pstatic.net/MjAyNjA0MDlfMTMg/MDAxNzc1NzA3Njk0ODk1.m_qrq4GLY3EGeCckFnSxjOmKEOQLM8Jr1J-zSw-ViGkg.nF3UH9XgY9StLtFuzFeoRdPfqKeHIDChZVq610237BAg.JPEG/20260329_141806.jpg?type=w773",
+      "https://postfiles.pstatic.net/MjAyNjA0MDlfNDUg/MDAxNzc1NzA3Njk3ODgy.4M9-BEQdabsU4Lzw2Ay5ODr6Y9QTmt8YTQx145shetQg.0IYiDPYNmmedgOgeEIBslNILS3sYKuZQFxWpTNQGXMwg.JPEG/20260329_141918.jpg?type=w773"
+    ],
+    "details": [
+      "지게차 승하차 횟수 감소",
+      "원판 랩 고정 장치 적용",
+      "무선 리모컨으로 즉시 랩핑",
+      "간편한 랩 절단 장치",
+      "작업 동선 단축 및 피로도 감소",
+      "최대 50m 무선 송신 가능"
+    ],
+    "advantages": [
+      {
+        "title": "승하차 및 피로도 감소",
+        "description": "랩핑 때마다 매번 지게차를 오르내리던 번거로움을 줄여 작업자의 피로도를 획기적으로 낮춥니다."
+      },
+      {
+        "title": "안전 절단 & 원터치 시작",
+        "description": "랩을 직접 묶고 칼로 자르는 위험한 수작업 대신, 전용 고정 장치와 절단기로 안전하고 빠르게 작업합니다."
+      }
+    ],
+    "processTitle": "기본형 랩핑기 작업 과정 (리모컨 적용)",
+    "processSteps": [
+      {
+        "step": 1,
+        "title": "① 파렛트 적재",
+        "description": "지게차로 제품이 적재된 파렛트를 랩핑기 원판 위에 올립니다."
+      },
+      {
+        "step": 2,
+        "title": "② 랩 고정 장치",
+        "description": "원판에 설치된 랩 고정 장치가 랩을 잡아주기 때문에, 작업자가 랩을 잡기 위해 지게차에서 내릴 필요가 없습니다."
+      },
+      {
+        "step": 3,
+        "title": "③ 리모컨으로 랩핑 시작",
+        "description": "지게차에 탄 상태에서 리모컨 운전 버튼만 누르면 랩핑이 시작됩니다."
+      },
+      {
+        "step": 4,
+        "title": "④ 자동 랩핑",
+        "description": "랩핑기가 자동으로 회전하며 파렛트를 안정적으로 랩핑합니다."
+      },
+      {
+        "step": 5,
+        "title": "⑤ 랩핑 완료 후 간편하게 절단",
+        "description": "랩핑이 완료되면 원판과 기둥 사이에 설치된 소형 랩 절단 장치를 이용해 랩을 간편하게 절단합니다."
+      },
+      {
+        "step": 6,
+        "title": "⑥ 다음 작업 준비",
+        "description": "절단된 랩은 파렛트에 손으로 간단히 마무리하고, 랩걸이에 있는 랩을 다시 원판의 랩 고정 장치에 걸어줍니다."
+      },
+      {
+        "step": 7,
+        "title": "⑦ 다음 파렛트도 바로 작업",
+        "description": "다음 파렛트를 올린 후 다시 지게차에서 내리지 않고 리모컨 버튼만 눌러 랩핑을 시작할 수 있습니다."
+      }
+    ]
+  },
   {
     "id": "ramp",
     "title": "경사판 (Ramp)",
@@ -171,10 +251,34 @@ export const FALLBACK_OPTIONS: OptionItem[] = [
 export const fetchOptions = async (): Promise<OptionItem[]> => {
   try {
     const querySnapshot = await getDocs(collection(db, 'options'));
-    const options = querySnapshot.docs.map(doc => doc.data() as OptionItem);
+    let options = querySnapshot.docs.map(doc => doc.data() as OptionItem);
     
     if (options.length === 0) {
       return FALLBACK_OPTIONS;
+    }
+    
+    const remoteFallback = FALLBACK_OPTIONS.find(o => o.id === 'remote-control')!;
+    const remoteIdx = options.findIndex(o => o.id === 'remote-control' || o.id === 'remote');
+
+    if (remoteIdx === -1) {
+      // Remote option doesn't exist in Firestore collection, prepend fallback
+      options = [remoteFallback, ...options];
+    } else {
+      // If remote option exists in Firestore, update it with the latest 7-step process & copy, and put it first
+      const existing = options[remoteIdx];
+      const mergedRemote: OptionItem = {
+        ...existing,
+        ...remoteFallback,
+        image: existing.image || remoteFallback.image,
+        gallery: existing.gallery && existing.gallery.length > 0 ? existing.gallery : remoteFallback.gallery,
+        processTitle: remoteFallback.processTitle,
+        processSteps: remoteFallback.processSteps,
+        description: remoteFallback.description,
+        details: remoteFallback.details,
+        advantages: remoteFallback.advantages
+      };
+      options.splice(remoteIdx, 1);
+      options.unshift(mergedRemote);
     }
     
     return options;
