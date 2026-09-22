@@ -208,33 +208,17 @@ export default function Contact() {
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
                     <label className="text-base font-bold text-gray-700 ml-1">문의 내용</label>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setFormData(prev => ({
-                          ...prev,
-                          message: `• 파렛트 사이즈: \n• 포장 제품: \n• 최대 적재 높이: \n• 최소 / 최대 중량: \n• 지게차 유무: \n• 궁금하신 점: `
-                        }));
-                      }}
-                      className="text-xs font-semibold text-[#FF6321] hover:text-[#e05215] transition-colors flex items-center gap-1 bg-[#FF6321]/10 px-3 py-1.5 rounded-full"
-                    >
-                      + 작성 양식 채우기
-                    </button>
+                    <span className="text-xs text-gray-500 font-medium">
+                      자세한 내용을 남겨주시면 더욱 빠른 상담이 가능합니다
+                    </span>
                   </div>
                   <textarea
                     required
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    rows={8}
-                    placeholder={`원활한 견적 상담을 위해 아래 항목을 포함하여 입력해주시면 더욱 정확하고 빠른 안내가 가능합니다.
-
-• 파렛트 사이즈 (예: 1100 x 1100mm)
-• 포장 제품 (예: 종이박스, 플라스틱 용기, 파이프 등)
-• 최대 적재 높이 (예: 1800mm)
-• 최소 / 최대 중량 (예: 100kg ~ 1500kg)
-• 지게차 유무 (예: 지게차 보유 / 미보유 / 핸드리프트 사용)
-• 궁금하신 점 및 기타 문의사항`}
+                    rows={6}
+                    placeholder="문의하실 내용을 자유롭게 남겨주세요. 포장하실 제품, 파렛트 규격, 작업 환경 등 자세한 내용을 남겨주시면 더욱 빠르고 정확한 맞춤 견적 및 상담이 가능합니다."
                     className="w-full bg-white border border-gray-100 rounded-2xl px-6 py-4 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#FF6321]/20 focus:border-[#FF6321] transition-all resize-none placeholder:text-gray-400 placeholder:leading-relaxed shadow-sm text-sm"
                   />
                 </div>
